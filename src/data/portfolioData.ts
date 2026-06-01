@@ -1,0 +1,444 @@
+/** Raminder Jangao — portfolio content (edit labels/URLs here). */
+
+import portraitImageFile from "../../image/picture.jpg";
+
+/**
+ * Hero, SIOLENCE avatar, and chat bubbles — bundled from `image/picture.jpg` at repo root.
+ */
+export const portraitImageSrc: string = portraitImageFile;
+
+export interface Assistant {
+  name: string;
+  navSubtitle: string;
+  headerTagline: string;
+  avatarSrc: string;
+}
+
+export const assistant: Assistant = {
+  name: "SIOLENCE",
+  navSubtitle: "Chatbot",
+  headerTagline: "Polite help on any topic — portfolio context when it helps.",
+  avatarSrc: portraitImageSrc,
+};
+
+export interface Profile {
+  name: string;
+  title: string;
+  year: string;
+  tagline: string;
+  intro: string;
+  introClosing: string;
+  storyLead: string;
+  developmentStories: {
+    title: string;
+    context: string;
+    build: string;
+    impact: string;
+  }[];
+  highlights: string[];
+  chipsLabel: string;
+  cta: string;
+}
+
+/** Copy for the portfolio first-entry gate (Netflix-style intro — not nav redirect loader). */
+export const portfolioEnvelope = {
+  screenLabel: "Portfolio · First entry",
+  entryBadge: "ORIGINAL SERIES",
+  eyebrow: "Who's watching?",
+  role: "FULL-STACK DEVELOPER",
+  unlockLabel: "Play",
+  unlockHint: "Press Play to load your portfolio experience",
+  unlockAria: "Play and enter the full portfolio workspace",
+  stuckNote: "Opens when you visit Portfolio — press Play once per session to browse.",
+  loadingDurationMs: 3200,
+  loadingTitle: "Loading your experience",
+  loadingComplete: "You're in — enjoy the show.",
+  loadingSteps: [
+    "Warming up the studio…",
+    "Caching featured titles…",
+    "Syncing stack & project rows…",
+    "Connecting SIOLENCE assistant…",
+    "Starting your portfolio…",
+  ],
+  stamp: "2026",
+  postmark: "RJ",
+  classified: "HD · Stereo · Full stack",
+  coverageTitle: "Tech stack coverage",
+  navLockHint: "Press Play on the intro to unlock navigation",
+  navLockHintShort: "Intro locked",
+  firstEntryLabel: "Intro",
+  firstEntryAria: "Return to portfolio Netflix-style intro",
+  netflixTagline: "Stories built in code. Shipped to production.",
+  profileLabel: "Developer",
+  addProfileLabel: "More builds",
+  maturityRating: "TV-MA · Strong engineering",
+} as const;
+
+export const profile: Profile = {
+  name: "Raminder Jangao",
+  title: "Full-stack developer",
+  year: "2026",
+  tagline:
+    "Web, mobile, games, and AI—designed and engineered end to end, from first idea to production-ready release.",
+  intro:
+    "I design and ship full-stack software with steady communication, thoughtful architecture, and scope that adapts to your goals. Pricing stays transparent, student-friendly options are on the table, and you get demos you're happy to put in front of clients or classmates.",
+  introClosing:
+    "When you reach out, you're talking to the person who builds the product—not a ticket queue, sales script, or generic autoresponder.",
+  storyLead: "Solution-Driven System Stories",
+  developmentStories: [
+    {
+      title: "Fast request handling for busy teams",
+      context: "Daily requests were piling up and updates were difficult to track from start to finish.",
+      build: "I redesigned the workflow to make each request clearer, easier to assign, and simpler to follow.",
+      impact: "Teams handled tasks faster, reduced confusion, and delivered updates with more confidence.",
+    },
+    {
+      title: "Better guidance for end users",
+      context: "Users needed quick answers but often got stuck waiting for manual support.",
+      build: "I created a guided support flow that keeps conversations clear, focused, and easy to navigate.",
+      impact: "People got help sooner, support load decreased, and user satisfaction improved.",
+    },
+    {
+      title: "Reliable project delivery cycles",
+      context: "Frequent updates were needed, but consistency across releases was hard to maintain.",
+      build: "I introduced a cleaner release rhythm with clear checkpoints and repeatable deployment practices.",
+      impact: "Updates became smoother, rollout quality improved, and project momentum stayed strong.",
+    },
+  ],
+  highlights: [
+    "Always open for development",
+    "Accepting commissions",
+    "Student-budget friendly",
+    "Available 24/7",
+  ],
+  chipsLabel: "At a glance",
+  cta:
+    "Ready to build something real? Send your concept, goals, or budget. I’ll take care of frontend, backend, databases, and APIs—shipping in iterations until the product feels right in your hands.",
+};
+
+export type SkillIconKey =
+  | "infra"
+  | "backend"
+  | "frontend"
+  | "mobile"
+  | "flutter"
+  | "native"
+  | "dotnet"
+  | "database"
+  | "styles"
+  | "tools"
+  | "os"
+  | "code";
+
+export interface ExpertiseCoverageItem {
+  label: string;
+  icon: SkillIconKey;
+  coverage: number;
+  tags: string;
+}
+
+/** Entry-gate expertise bars + radar (icons only — no external chart lib). */
+export const expertiseCoverage: ExpertiseCoverageItem[] = [
+  { label: "Python · PHP", icon: "backend", coverage: 96, tags: "Flask · Django · Laravel · Native" },
+  { label: "Vue · React · Angular", icon: "frontend", coverage: 95, tags: "TS · JS · Next.js · Svelte" },
+  { label: "TypeScript · JavaScript", icon: "code", coverage: 94, tags: "Full-stack JS ecosystem" },
+  { label: ".NET · C# · ASP.NET", icon: "dotnet", coverage: 90, tags: "Web API · MVC · Blazor · GUI" },
+  { label: "React Native · Expo", icon: "mobile", coverage: 92, tags: "APK · Node · Laravel · Python" },
+  { label: "Flutter · Dart", icon: "flutter", coverage: 88, tags: "Web & mobile · Firebase" },
+  { label: "Java · Kotlin · Swift", icon: "native", coverage: 86, tags: "Android APK · JavaFX" },
+  { label: "SQL · NoSQL · Cloud DB", icon: "database", coverage: 93, tags: "MySQL · MongoDB · Supabase · Prisma" },
+  { label: "CSS Frameworks", icon: "styles", coverage: 91, tags: "Tailwind · Bootstrap · Bulma" },
+  { label: "Git · Scripting", icon: "tools", coverage: 82, tags: "Git · Ruby · Perl · Lua" },
+  { label: "Windows · macOS", icon: "os", coverage: 95, tags: "Cross-platform builds" },
+  { label: "Docker · DevOps", icon: "infra", coverage: 78, tags: "Kubernetes · deploy pipelines" },
+];
+
+export interface SkillRow {
+  text: string;
+  icon: SkillIconKey;
+}
+
+/** Section heading for stack on Portfolio (`#stack`) and Project showcase. */
+export const stackSectionTitle = "Programming languages, frameworks & databases";
+
+export const skills: SkillRow[] = [
+  { text: "Docker · Kubernetes", icon: "infra" },
+  { text: "Python (Flask, Django) · PHP (native, Laravel)", icon: "backend" },
+  {
+    text: "ASP.NET Core · C# · .NET · Web API · MVC · Blazor · Razor Pages",
+    icon: "dotnet",
+  },
+  {
+    text: "Vue · Svelte · React · Angular · TypeScript · JavaScript",
+    icon: "frontend",
+  },
+  { text: "React Native · Expo · Android APK", icon: "mobile" },
+  {
+    text: "React.js · Next.js · JSX · TypeScript",
+    icon: "frontend",
+  },
+  { text: "Flutter · Dart (web & mobile)", icon: "flutter" },
+  { text: "Java, Kotlin, Swift · Android APK · JavaFX", icon: "native" },
+  {
+    text: "MySQL · MongoDB · SQLite · PostgreSQL · Supabase · Firebase",
+    icon: "database",
+  },
+  { text: "Bootstrap · Tailwind CSS · Bulma · Vanilla HTML/CSS", icon: "styles" },
+  { text: "Git · Ruby · Perl · Lua", icon: "tools" },
+  { text: "Windows & macOS", icon: "os" },
+];
+
+export type ProjectGroupIconKey =
+  | "ai"
+  | "building"
+  | "map"
+  | "education"
+  | "game"
+  | "portfolio"
+  | "bot"
+  | "globe";
+
+export interface ProjectItem {
+  label: string;
+  href: string;
+}
+
+export interface FeaturedProjectItem extends ProjectItem {
+  tag: string;
+}
+
+/** Spotlight builds — dedicated section only (excluded from Project galaxy orbits). */
+export const featuredProjectSection = {
+  id: "featured-projects",
+  kicker: "Trending now",
+  title: "Featured titles",
+  sub: "Twelve flagship builds with live previews — select any card to stream the full app on Vercel.",
+} as const;
+
+export const featuredProjects: FeaturedProjectItem[] = [
+  { label: "Helpdesk Management System", href: "https://helpdesk-management-system1.vercel.app/", tag: "Support" },
+  { label: "Temple Management System", href: "https://temple-management-system-lac.vercel.app/", tag: "Operations" },
+  {
+    label: "Logistics Management System (LMS)",
+    href: "https://logistics-management-system-25-role.vercel.app/",
+    tag: "Logistics",
+  },
+  { label: "PrimeFlow WMS", href: "https://warehouse-management-system-sable.vercel.app/", tag: "Warehouse" },
+  { label: "Cooperative Management System", href: "https://cooperative-erp-system.vercel.app/", tag: "ERP" },
+  {
+    label: "Grace Fellowship Church Management",
+    href: "https://grace-fellowship-church-beryl.vercel.app/",
+    tag: "Church",
+  },
+  { label: "College Enrollment System", href: "https://college-enrollment.vercel.app/", tag: "Education" },
+  { label: "WORKLINK — JobHub AI", href: "https://work-link-jobhub-ai.vercel.app/", tag: "Careers" },
+  {
+    label: "HCC TAP System (Document Processing)",
+    href: "https://document-processing-system-ai.vercel.app/",
+    tag: "Document AI",
+  },
+  { label: "Blush — QR Code Attendance", href: "https://blush-qr-code-attendance-system.vercel.app/", tag: "Attendance" },
+  { label: "Dental Clinic Galaxy Assistant", href: "https://dental-clinic-assistant-sigma.vercel.app/", tag: "Clinic" },
+  { label: "CSU OJT Management System", href: "https://ojt-management-system-ai.vercel.app/", tag: "OJT" },
+];
+
+export interface ProjectGroup {
+  title: string;
+  icon?: ProjectGroupIconKey;
+  items: ProjectItem[];
+}
+
+function normalizeHref(href: string): string {
+  try {
+    const u = new URL(href);
+    const path = u.pathname.replace(/\/$/, "") || "";
+    return `${u.origin}${path}`;
+  } catch {
+    return href.replace(/\/$/, "");
+  }
+}
+
+/** Galaxy groups with featured URLs removed so tiles are not duplicated. */
+export function projectGroupsExcludingFeatured(groups: ProjectGroup[]): ProjectGroup[] {
+  const featured = new Set(featuredProjects.map((p) => normalizeHref(p.href)));
+  return groups
+    .map((g) => ({
+      ...g,
+      items: g.items.filter((i) => !featured.has(normalizeHref(i.href))),
+    }))
+    .filter((g) => g.items.length > 0);
+}
+
+/** Shown on header navigation transition overlay (Portfolio / Project / Chat). */
+export const headerNavWelcome = {
+  eyebrow: "Now streaming",
+  title: "Welcome, Clients",
+  subtitle: "Inquire for",
+  services: [
+    "Web Development",
+    "App Development",
+    "Game Development",
+    "AI Chatbot Applications",
+  ],
+  progressLabel: "Buffering workspace",
+  progressMessage: "Loading your workspace. Almost there.",
+  progressSteps: [
+    "Routing to your destination…",
+    "Syncing stack lineup…",
+    "Loading project rows…",
+    "Applying Netflix-style UI…",
+    "Starting playback — hold tight…",
+  ],
+  transitionMs: 2800,
+} as const;
+
+export const projectGroups: ProjectGroup[] = [
+  {
+    title: "AI, ERP & guides",
+    icon: "ai",
+    items: [
+      { label: "AI ERP System", href: "https://ai-erp-system-five.vercel.app/" },
+      { label: "Cooperative Management System", href: "https://cooperative-erp-system.vercel.app/" },
+      { label: "HCC TAP System (Document Processing)", href: "https://document-processing-system-ai.vercel.app/" },
+      { label: "Document AI Verification", href: "https://document-ai-verification-system.vercel.app/" },
+      { label: "System AI Guide", href: "https://system-ai-guide.vercel.app/home" },
+      { label: "AI System", href: "https://ai-system123.vercel.app/" },
+      { label: "AI Charts Assistant", href: "https://ai-charts-assistant.vercel.app/" },
+    ],
+  },
+  {
+    title: "Rental, e-voting & mobile releases",
+    icon: "building",
+    items: [
+      { label: "E-Voting System AI", href: "https://evoting-system-ai0.vercel.app/" },
+      { label: "Sales & Inventory AI (APK — Google Drive)", href: "https://tinyurl.com/2p2d76mx" },
+      { label: "Event Venue Rental System", href: "https://event-venue-rental-system.vercel.app/" },
+      {
+        label: "Hotel Rental App (APK — Google Drive)",
+        href: "https://drive.google.com/drive/folders/1SB37yUhb2avisPWcPbiI1yQ1rpPi-42i",
+      },
+      { label: "House Rental AI", href: "https://house-rental-ai.vercel.app/" },
+      { label: "Drive Ease AI", href: "https://drive-ease-ai.vercel.app/" },
+    ],
+  },
+  {
+    title: "Commerce, cafe & storefronts",
+    icon: "globe",
+    items: [
+      { label: "Daily Grind — Coffee Shop", href: "https://daily-grind-ai.vercel.app/" },
+      { label: "UrbanNest — E-commerce", href: "https://urban-nes-ai.vercel.app/" },
+    ],
+  },
+  {
+    title: "Management & public systems",
+    icon: "building",
+    items: [
+      { label: "Helpdesk Management System", href: "https://helpdesk-management-system1.vercel.app/" },
+      { label: "Temple Management System", href: "https://temple-management-system-lac.vercel.app/" },
+      { label: "Logistics Management System (LMS)", href: "https://logistics-management-system-25-role.vercel.app/" },
+      { label: "PrimeFlow WMS", href: "https://warehouse-management-system-sable.vercel.app/" },
+      { label: "Grace Fellowship Church Management", href: "https://grace-fellowship-church-beryl.vercel.app/" },
+      { label: "Resident AI Management", href: "https://resident-ai-management-system.vercel.app/" },
+      { label: "Volunteer Management", href: "https://volunteer-management-system12.vercel.app/" },
+      { label: "AI Barangay", href: "https://ai-barangay-system.vercel.app/home" },
+      { label: "Employee / Farm Management", href: "https://employee-farm-management-3-3.vercel.app/" },
+      { label: "Hospital Management", href: "https://hospital-management-system-4-4.vercel.app/" },
+      { label: "Dental Clinic Galaxy Assistant", href: "https://dental-clinic-assistant-sigma.vercel.app/" },
+      { label: "Blush — QR Code Attendance", href: "https://blush-qr-code-attendance-system.vercel.app/" },
+      { label: "Bus Reservation", href: "https://bus-reservation-dusky.vercel.app/" },
+      { label: "Facility Reservation (client)", href: "https://facility-reservation-system-beta.vercel.app/client" },
+      { label: "Fire Incident System", href: "https://fire-incident-system-7gkj.vercel.app/" },
+      { label: "Crime System", href: "https://crimesystem123.vercel.app/" },
+      { label: "Galaxy Nutrition", href: "https://galaxy-nutrition-system.vercel.app/" },
+      { label: "Vue Dev Ram (customer)", href: "https://vue-dev-ram.vercel.app/customer" },
+    ],
+  },
+  {
+    title: "Mapping, layout & specialized",
+    icon: "map",
+    items: [
+      { label: "Teeth Layout", href: "https://teeth-layout-system.vercel.app/" },
+      { label: "Parking Area Mapping", href: "https://parking-area-mapping.vercel.app/" },
+      { label: "Lot Visualization", href: "https://lot-visualization-customize-abqw.vercel.app/" },
+      { label: "Lab Test System", href: "https://labtestsystem.vercel.app/" },
+      { label: "8 Roles Base System", href: "https://8-roles-base-system.vercel.app/" },
+    ],
+  },
+  {
+    title: "Education & civic",
+    icon: "education",
+    items: [
+      { label: "College Enrollment System", href: "https://college-enrollment.vercel.app/" },
+      { label: "WORKLINK — JobHub AI", href: "https://work-link-jobhub-ai.vercel.app/" },
+      { label: "Quiz System", href: "https://quiz-system-lovat.vercel.app/home" },
+      { label: "Class System", href: "https://class-system-xi.vercel.app/" },
+      { label: "CSU OJT Management System", href: "https://ojt-management-system-ai.vercel.app/" },
+      { label: "Books", href: "https://books-three-nu.vercel.app/" },
+      { label: "Voting System", href: "https://voting-system123.vercel.app/home" },
+      { label: "Cultural Map Journey", href: "https://cultural-map-journeyv1.vercel.app/" },
+    ],
+  },
+  {
+    title: "3D, games & experiments",
+    icon: "game",
+    items: [
+      { label: "Snowy Walking World", href: "https://snowy-walking-world.vercel.app/" },
+      { label: "3D Space Simulation", href: "https://3-d-space-simulation.vercel.app/" },
+      { label: "3D Simulation (Iota)", href: "https://3-d-simulation-iota.vercel.app/" },
+      { label: "3D Scene", href: "https://3-dasdasdasd.vercel.app/" },
+      { label: "React House", href: "https://react-house-weld.vercel.app/" },
+      { label: "Enter the Blood Harvest", href: "https://enter-the-blood-harvest.vercel.app/" },
+      { label: "Tales Web", href: "https://tales-web-wpjg.vercel.app/" },
+      { label: "Scaling", href: "https://scaling23456.vercel.app/" },
+    ],
+  },
+  {
+    title: "Portfolios & services",
+    icon: "portfolio",
+    items: [
+      { label: "Portfolio — Ram Jet", href: "https://portfolio-ram-jet.vercel.app/" },
+      { label: "Portfolio 123 (Pink)", href: "https://portfolio123-pink.vercel.app/" },
+      { label: "Dev Ram Portfolio", href: "https://dev-ram-portfolio.vercel.app/" },
+      { label: "Raminder Jangao", href: "https://raminderjangao.vercel.app/" },
+      { label: "Raminder Services (about)", href: "https://raminder-services.vercel.app/about" },
+    ],
+  },
+  {
+    title: "AI chatbots",
+    icon: "bot",
+    items: [
+      { label: "Main Chatbot", href: "https://mainchatbot.vercel.app/" },
+      { label: "Chatbot 1 (dev)", href: "https://chatbot1-dev-hh17.vercel.app/" },
+      { label: "Chatbot 2 (development)", href: "https://chatbot2-development2.vercel.app/" },
+    ],
+  },
+];
+
+export interface YoutubeChannel {
+  handle: string;
+  href: string;
+}
+
+export const youtubeChannel: YoutubeChannel = {
+  handle: "@CapstoneDeveloper",
+  href: "https://www.youtube.com/@CapstoneDeveloper",
+};
+
+export type SocialNetwork = "youtube" | "facebook";
+
+export interface SocialLink {
+  label: string;
+  href: string;
+  network: SocialNetwork;
+}
+
+export const social: SocialLink[] = [
+  { label: `YouTube — ${youtubeChannel.handle}`, href: youtubeChannel.href, network: "youtube" },
+  {
+    label: "Facebook — Raminder Jangao",
+    href: "https://www.facebook.com/profile.php?id=61577387592988",
+    network: "facebook",
+  },
+  { label: "Facebook — jangao2000", href: "https://www.facebook.com/jangao2000", network: "facebook" },
+  { label: "Facebook — asuna.zoe.9", href: "https://www.facebook.com/asuna.zoe.9", network: "facebook" },
+];
