@@ -1,4 +1,4 @@
-/** Normalize Vercel/live URLs for deduping featured vs galaxy lists. */
+/** Normalize Vercel/live URLs for consistent comparison. */
 export function normalizeProjectHref(href: string): string {
   try {
     const u = new URL(href);

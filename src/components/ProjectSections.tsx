@@ -7,15 +7,8 @@ function iconKey(group: ProjectGroup): ProjectGroupIconKey {
   return group.icon ?? "globe";
 }
 
-export function ProjectSections({
-  groups,
-  featuredCount = 0,
-}: {
-  groups: ProjectGroup[];
-  featuredCount?: number;
-}) {
-  const galaxyCount = groups.reduce((n, g) => n + g.items.length, 0);
-  const totalProjects = galaxyCount + featuredCount;
+export function ProjectSections({ groups }: { groups: ProjectGroup[] }) {
+  const totalCount = groups.reduce((n, g) => n + g.items.length, 0);
 
   return (
     <div className="projects-universe">
@@ -25,18 +18,10 @@ export function ProjectSections({
           My list · production builds
           <span className="projects-universe__kicker-dot" aria-hidden />
         </p>
-        <h2 className="projects-universe__title">Continue watching</h2>
+        <h2 className="projects-universe__title">Live projects</h2>
         <p className="projects-universe__sub">
-          {featuredCount > 0 ? (
-            <>
-              {featuredCount} trending titles above · {galaxyCount} more across {groups.length} rows —{" "}
-              {totalProjects} live links total. Every card shows a live preview — select to open.
-            </>
-          ) : (
-            <>
-              {galaxyCount} shipped links across {groups.length} rows — every card shows a live preview.
-            </>
-          )}
+          {totalCount} shipped links across {groups.length} rows — every card shows a live preview. Select any card to
+          open the app on Vercel.
         </p>
       </header>
 
@@ -63,7 +48,7 @@ export function ProjectSections({
                 {g.items.length}
               </span>
             </h3>
-            <ProjectCardGrid items={cards} variant="galaxy" />
+            <ProjectCardGrid items={cards} />
           </section>
         );
       })}

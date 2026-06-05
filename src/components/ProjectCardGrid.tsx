@@ -7,27 +7,20 @@ export type ProjectCardItem = ProjectItem & { tag: string };
 
 export function ProjectCardGrid({
   items,
-  variant = "galaxy",
   eagerPreviewCount = 0,
 }: {
   items: ProjectCardItem[];
-  variant?: "featured" | "galaxy";
   eagerPreviewCount?: number;
 }) {
-  const isFeatured = variant === "featured";
-
   return (
-    <ul
-      className={`project-cards__grid m-0 list-none p-0 ${isFeatured ? "project-cards__grid--featured" : "project-cards__grid--galaxy"}`}
-      role="list"
-    >
+    <ul className="project-cards__grid project-cards__grid--galaxy m-0 list-none p-0" role="list">
       {items.map((item, index) => (
         <li key={item.href} role="listitem" className="project-cards__wrap">
           <a
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            className={`project-cards__card group ${isFeatured ? "project-cards__card--featured" : "project-cards__card--galaxy"}`}
+            className="project-cards__card project-cards__card--galaxy group"
             style={{ animationDelay: `${index * 40}ms` }}
           >
             <span className="project-cards__thumb">
@@ -43,7 +36,6 @@ export function ProjectCardGrid({
                 }}
               />
               <span className="project-cards__thumb-shine" aria-hidden />
-              {isFeatured ? <span className="project-cards__spotlight-pill">Top pick</span> : null}
               <span className="project-cards__live-pill">Live</span>
             </span>
             <span className="project-cards__body">

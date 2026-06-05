@@ -5,6 +5,8 @@ import { showcaseTechLead, projectShowcaseFacebookPosts } from "../data/projectS
 import { SocialIcon } from "../icons";
 import { ExpertiseCoverageChart } from "./ExpertiseCoverageChart";
 import { StackTechPanel } from "./StackTechPanel";
+import { SystemUiSection } from "./SystemUiSection";
+import { DatabaseScreenshotsSection } from "./DatabaseScreenshotsSection";
 
 const SWIPE_MIN_PX = 48;
 
@@ -183,9 +185,27 @@ export function ProjectShowcaseView({ hidden }: { hidden: boolean }) {
           </div>
         </div>
 
+        <SystemUiSection hidden={hidden} />
+
+        <DatabaseScreenshotsSection hidden={hidden} />
+
+        <header className="showcase-gallery-section mb-[clamp(1rem,3vw,1.5rem)] border-t border-red-500/15 pt-[clamp(1.25rem,3.5vw,2rem)] text-center sm:text-left">
+          <p className="showcase-gallery-section__kicker m-0 flex items-center justify-center gap-2 font-mono text-[0.58rem] font-semibold uppercase tracking-[0.22em] text-red-300/80 sm:justify-start">
+            <span className="showcase-hero__kicker-dot" aria-hidden />
+            Client builds
+            <span className="showcase-hero__kicker-dot" aria-hidden />
+          </p>
+          <h2 className="showcase-gallery-section__title m-0 mt-2 bg-gradient-to-r from-white via-red-100 to-red-200 bg-clip-text text-[clamp(1rem,3.2vw,1.35rem)] font-bold tracking-tight text-transparent">
+            Receipts &amp; delivery gallery
+          </h2>
+          <p className="showcase-gallery-section__sub m-0 mt-2 text-[0.72rem] font-medium leading-relaxed text-slate-400">
+            {total} screenshots — transaction receipts and capstone delivery proof.
+          </p>
+        </header>
+
         <div
           className="grid w-full min-w-0 grid-cols-1 gap-[clamp(0.75rem,2.4vw,1.25rem)] min-[420px]:grid-cols-2 min-[900px]:grid-cols-3 min-[1400px]:grid-cols-4"
-          aria-label="Project showcase gallery"
+          aria-label="Receipts and delivery gallery"
         >
           {projectShowcaseImages.map((item, i) => (
             <button
