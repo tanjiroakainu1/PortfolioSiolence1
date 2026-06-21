@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Hero } from "./Hero";
 import { SkillsSection } from "./SkillsSection";
+import { LearningDocsSection } from "./LearningDocsSection";
 import { ProjectSections } from "./ProjectSections";
 import { ContactSection } from "./ContactSection";
 import { PortfolioEntryGate } from "./PortfolioEntryGate";
@@ -43,6 +44,7 @@ export function PortfolioView({
             <Hero profile={profile} assistant={assistant} />
             <ContactSection assistant={assistant} />
             <SkillsSection skills={skills} />
+            <LearningDocsSection />
             <section
               id="projects"
               ref={projectsAnchorRef}

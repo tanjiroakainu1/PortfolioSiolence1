@@ -353,3 +353,25 @@ export const contactSection = {
   leadSuffix:
     "in the nav — polite help on any topic, plus Raminder’s portfolio and live project demos when you need them.",
 } as const;
+
+/** Study / reference library — separate from live project demos (`#learning-docs`). */
+export const learningDocsSection = {
+  id: "learning-docs",
+  kicker: "Study reference",
+  title: "IT & CS programming languages",
+  sub: "Curated Google Drive folders for learning — algorithms, languages, databases, mobile, and more. Not live app demos; use Projects below for shipped builds.",
+  href: "https://drive.google.com/drive/folders/1szNFTWR41Y0mKuP1BdBIYS8BqRTzyNhg",
+  linkLabel: "Open learning library on Google Drive",
+  topics: [
+    "Algorithms",
+    "Android",
+    "Angular",
+    "Arduino",
+    "C · C# · C++",
+    "CSS · HTML5",
+    "Databases",
+    "Front end · Back end",
+    "Java · iOS",
+    "And more",
+  ],
+} as const;

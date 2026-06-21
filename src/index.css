@@ -363,6 +363,55 @@
     min-width: 0;
   }
 
+  .electric-panel--learning {
+    @apply border-action/25 ring-action/15;
+    background-image:
+      radial-gradient(ellipse 70% 50% at 100% 0%, rgba(84, 185, 255, 0.08), transparent 55%),
+      linear-gradient(145deg, rgba(26, 26, 26, 0.98), rgba(20, 20, 20, 0.96));
+  }
+
+  .learning-docs__head {
+    margin-bottom: 1rem;
+  }
+
+  .learning-docs__kicker {
+    @apply m-0 flex items-center justify-center gap-2 font-mono font-semibold uppercase tracking-[0.22em] text-action-bright/80 sm:justify-start;
+    font-size: clamp(0.62rem, 1.8vw, 0.72rem);
+  }
+
+  .learning-docs__kicker-dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background: #54b9ff;
+    box-shadow: 0 0 8px rgba(84, 185, 255, 0.45);
+  }
+
+  .learning-docs__title {
+    @apply mb-2 mt-2;
+  }
+
+  .learning-docs__sub {
+    @apply m-0 max-w-2xl text-center font-medium leading-relaxed text-slate-400 sm:text-left;
+    font-size: clamp(0.78rem, 2.1vw, 0.88rem);
+  }
+
+  .learning-docs__topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 1.15rem;
+  }
+
+  .learning-docs__topic {
+    @apply inline-flex rounded-md border border-action/30 bg-action/[0.1] px-2 py-0.5 font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-action-bright sm:text-[0.6rem];
+  }
+
+  .learning-docs__link {
+    margin-top: 0.15rem;
+  }
+
   .electric-panel--projects {
     @apply border-red-400/40 bg-gradient-to-b from-[#1a1a1a] via-[#181818] to-nebula/35 ring-red-400/20 backdrop-blur-[1.5px];
     background-color: rgba(20, 20, 20, 0.9);
