@@ -55,7 +55,7 @@ export const portfolioEnvelope = {
   loadingComplete: "You're in — enjoy the show.",
   loadingSteps: [
     "Warming up the studio…",
-    "Caching featured titles…",
+    "Loading project links…",
     "Syncing stack & project rows…",
     "Connecting SIOLENCE assistant…",
     "Starting your portfolio…",
@@ -203,70 +203,17 @@ export interface ProjectItem {
   href: string;
 }
 
-export interface FeaturedProjectItem extends ProjectItem {
-  tag: string;
-}
-
-/** Spotlight builds — dedicated section only (excluded from Project galaxy orbits). */
-export const featuredProjectSection = {
-  id: "featured-projects",
-  kicker: "Trending now",
-  title: "Featured titles",
-  sub: "Twelve flagship builds with live previews — select any card to stream the full app on Vercel.",
+/** Portfolio projects section heading (single list — no featured/trending split). */
+export const projectsSection = {
+  kicker: "Live builds",
+  title: "Projects",
+  sub: "Every card shows a live site preview — select any tile to open the full app.",
 } as const;
-
-export const featuredProjects: FeaturedProjectItem[] = [
-  { label: "Helpdesk Management System", href: "https://helpdesk-management-system1.vercel.app/", tag: "Support" },
-  { label: "Temple Management System", href: "https://temple-management-system-lac.vercel.app/", tag: "Operations" },
-  {
-    label: "Logistics Management System (LMS)",
-    href: "https://logistics-management-system-25-role.vercel.app/",
-    tag: "Logistics",
-  },
-  { label: "PrimeFlow WMS", href: "https://warehouse-management-system-sable.vercel.app/", tag: "Warehouse" },
-  { label: "Cooperative Management System", href: "https://cooperative-erp-system.vercel.app/", tag: "ERP" },
-  {
-    label: "Grace Fellowship Church Management",
-    href: "https://grace-fellowship-church-beryl.vercel.app/",
-    tag: "Church",
-  },
-  { label: "College Enrollment System", href: "https://college-enrollment.vercel.app/", tag: "Education" },
-  { label: "WORKLINK — JobHub AI", href: "https://work-link-jobhub-ai.vercel.app/", tag: "Careers" },
-  {
-    label: "HCC TAP System (Document Processing)",
-    href: "https://document-processing-system-ai.vercel.app/",
-    tag: "Document AI",
-  },
-  { label: "Blush — QR Code Attendance", href: "https://blush-qr-code-attendance-system.vercel.app/", tag: "Attendance" },
-  { label: "Dental Clinic Galaxy Assistant", href: "https://dental-clinic-assistant-sigma.vercel.app/", tag: "Clinic" },
-  { label: "CSU OJT Management System", href: "https://ojt-management-system-ai.vercel.app/", tag: "OJT" },
-];
 
 export interface ProjectGroup {
   title: string;
   icon?: ProjectGroupIconKey;
   items: ProjectItem[];
-}
-
-function normalizeHref(href: string): string {
-  try {
-    const u = new URL(href);
-    const path = u.pathname.replace(/\/$/, "") || "";
-    return `${u.origin}${path}`;
-  } catch {
-    return href.replace(/\/$/, "");
-  }
-}
-
-/** Galaxy groups with featured URLs removed so tiles are not duplicated. */
-export function projectGroupsExcludingFeatured(groups: ProjectGroup[]): ProjectGroup[] {
-  const featured = new Set(featuredProjects.map((p) => normalizeHref(p.href)));
-  return groups
-    .map((g) => ({
-      ...g,
-      items: g.items.filter((i) => !featured.has(normalizeHref(i.href))),
-    }))
-    .filter((g) => g.items.length > 0);
 }
 
 /** Shown on header navigation transition overlay (Portfolio / Project / Chat). */
@@ -311,12 +258,7 @@ export const projectGroups: ProjectGroup[] = [
     icon: "building",
     items: [
       { label: "E-Voting System AI", href: "https://evoting-system-ai0.vercel.app/" },
-      { label: "Sales & Inventory AI (APK — Google Drive)", href: "https://tinyurl.com/2p2d76mx" },
       { label: "Event Venue Rental System", href: "https://event-venue-rental-system.vercel.app/" },
-      {
-        label: "Hotel Rental App (APK — Google Drive)",
-        href: "https://drive.google.com/drive/folders/1SB37yUhb2avisPWcPbiI1yQ1rpPi-42i",
-      },
       { label: "House Rental AI", href: "https://house-rental-ai.vercel.app/" },
       { label: "Drive Ease AI", href: "https://drive-ease-ai.vercel.app/" },
     ],
@@ -327,6 +269,7 @@ export const projectGroups: ProjectGroup[] = [
     items: [
       { label: "Daily Grind — Coffee Shop", href: "https://daily-grind-ai.vercel.app/" },
       { label: "UrbanNest — E-commerce", href: "https://urban-nes-ai.vercel.app/" },
+      { label: "Restaurant Management System", href: "https://restaurant-management-system-blue.vercel.app/" },
     ],
   },
   {
@@ -339,16 +282,24 @@ export const projectGroups: ProjectGroup[] = [
       { label: "PrimeFlow WMS", href: "https://warehouse-management-system-sable.vercel.app/" },
       { label: "Grace Fellowship Church Management", href: "https://grace-fellowship-church-beryl.vercel.app/" },
       { label: "Resident AI Management", href: "https://resident-ai-management-system.vercel.app/" },
+      { label: "Metro PMS — Tenant Management", href: "https://tenant-management-system-alpha.vercel.app/" },
       { label: "Volunteer Management", href: "https://volunteer-management-system12.vercel.app/" },
       { label: "AI Barangay", href: "https://ai-barangay-system.vercel.app/home" },
       { label: "Employee / Farm Management", href: "https://employee-farm-management-3-3.vercel.app/" },
+      { label: "Green Valley Livestock Management", href: "https://livestock-management-system-one.vercel.app/" },
       { label: "Hospital Management", href: "https://hospital-management-system-4-4.vercel.app/" },
+      { label: "Payroll Management System", href: "https://payroll-management-system1.vercel.app/" },
       { label: "Dental Clinic Galaxy Assistant", href: "https://dental-clinic-assistant-sigma.vercel.app/" },
       { label: "Blush — QR Code Attendance", href: "https://blush-qr-code-attendance-system.vercel.app/" },
       { label: "Bus Reservation", href: "https://bus-reservation-dusky.vercel.app/" },
       { label: "Facility Reservation (client)", href: "https://facility-reservation-system-beta.vercel.app/client" },
       { label: "Fire Incident System", href: "https://fire-incident-system-7gkj.vercel.app/" },
       { label: "Crime System", href: "https://crimesystem123.vercel.app/" },
+      { label: "Cybersecurity Management System", href: "https://cyber-security-system1.vercel.app/login" },
+      { label: "Disaster Relief Management System", href: "https://disaster-relief-management-system.vercel.app/" },
+      { label: "Procurement Contract Management", href: "https://procurement-contract-management.vercel.app/" },
+      { label: "Wildlife Management System", href: "https://wild-life-management-system.vercel.app/" },
+      { label: "Data Center Management System", href: "https://data-center-management-system.vercel.app/" },
       { label: "Galaxy Nutrition", href: "https://galaxy-nutrition-system.vercel.app/" },
       { label: "Vue Dev Ram (customer)", href: "https://vue-dev-ram.vercel.app/customer" },
     ],
@@ -369,6 +320,7 @@ export const projectGroups: ProjectGroup[] = [
     icon: "education",
     items: [
       { label: "College Enrollment System", href: "https://college-enrollment.vercel.app/" },
+      { label: "Academic Management System", href: "https://academic-management-system-kappa.vercel.app/" },
       { label: "WORKLINK — JobHub AI", href: "https://work-link-jobhub-ai.vercel.app/" },
       { label: "Quiz System", href: "https://quiz-system-lovat.vercel.app/home" },
       { label: "Class System", href: "https://class-system-xi.vercel.app/" },
@@ -392,53 +344,12 @@ export const projectGroups: ProjectGroup[] = [
       { label: "Scaling", href: "https://scaling23456.vercel.app/" },
     ],
   },
-  {
-    title: "Portfolios & services",
-    icon: "portfolio",
-    items: [
-      { label: "Portfolio — Ram Jet", href: "https://portfolio-ram-jet.vercel.app/" },
-      { label: "Portfolio 123 (Pink)", href: "https://portfolio123-pink.vercel.app/" },
-      { label: "Dev Ram Portfolio", href: "https://dev-ram-portfolio.vercel.app/" },
-      { label: "Raminder Jangao", href: "https://raminderjangao.vercel.app/" },
-      { label: "Raminder Services (about)", href: "https://raminder-services.vercel.app/about" },
-    ],
-  },
-  {
-    title: "AI chatbots",
-    icon: "bot",
-    items: [
-      { label: "Main Chatbot", href: "https://mainchatbot.vercel.app/" },
-      { label: "Chatbot 1 (dev)", href: "https://chatbot1-dev-hh17.vercel.app/" },
-      { label: "Chatbot 2 (development)", href: "https://chatbot2-development2.vercel.app/" },
-    ],
-  },
 ];
 
-export interface YoutubeChannel {
-  handle: string;
-  href: string;
-}
-
-export const youtubeChannel: YoutubeChannel = {
-  handle: "@CapstoneDeveloper",
-  href: "https://www.youtube.com/@CapstoneDeveloper",
-};
-
-export type SocialNetwork = "youtube" | "facebook";
-
-export interface SocialLink {
-  label: string;
-  href: string;
-  network: SocialNetwork;
-}
-
-export const social: SocialLink[] = [
-  { label: `YouTube — ${youtubeChannel.handle}`, href: youtubeChannel.href, network: "youtube" },
-  {
-    label: "Facebook — Raminder Jangao",
-    href: "https://www.facebook.com/profile.php?id=61577387592988",
-    network: "facebook",
-  },
-  { label: "Facebook — jangao2000", href: "https://www.facebook.com/jangao2000", network: "facebook" },
-  { label: "Facebook — asuna.zoe.9", href: "https://www.facebook.com/asuna.zoe.9", network: "facebook" },
-];
+/** Portfolio contact blurb (no external social links on this page). */
+export const contactSection = {
+  title: "Contact",
+  lead: "Questions about commissions, capstone work, or a custom build?",
+  leadSuffix:
+    "in the nav — polite help on any topic, plus Raminder’s portfolio and live project demos when you need them.",
+} as const;

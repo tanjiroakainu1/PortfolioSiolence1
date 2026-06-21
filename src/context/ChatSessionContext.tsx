@@ -11,7 +11,7 @@ import {
   type KeyboardEvent,
   type RefObject,
 } from "react";
-import { assistant, profile, youtubeChannel } from "../data/portfolioData";
+import { assistant, profile } from "../data/portfolioData";
 import { formatAssistantReply } from "../lib/formatAssistantReply";
 import { formatChatApiError } from "../lib/formatChatApiError";
 import { buildSystemPrompt } from "../lib/systemPrompt";
@@ -31,7 +31,7 @@ function uid() {
 }
 
 function buildWelcome(): string {
-  return `Hi — I’m ${assistant.name}. You can ask me anything: general questions, coding, study tips, ideas — I’ll stay polite and do my best. I can also tell you about Raminder’s work, stack, and demos (YouTube: ${youtubeChannel.handle}). For quotes or hiring, use Contact & social on the Portfolio page.`;
+  return `Hi — I’m ${assistant.name}. You can ask me anything: general questions, coding, study tips, ideas — I’ll stay polite and do my best. I can also tell you about Raminder’s work, stack, and live project demos on the Portfolio page. For quotes or hiring, describe what you need here and we’ll go from there.`;
 }
 
 export type ChatSessionContextValue = {
@@ -52,10 +52,7 @@ export type ChatSessionContextValue = {
 const ChatSessionContext = createContext<ChatSessionContextValue | null>(null);
 
 export function ChatSessionProvider({ children }: { children: React.ReactNode }) {
-  const systemPrompt = useMemo(
-    () => buildSystemPrompt(assistant, profile, youtubeChannel),
-    []
-  );
+  const systemPrompt = useMemo(() => buildSystemPrompt(assistant, profile), []);
   const threadRef = useRef<{ role: string; content: string }[]>([
     { role: "system", content: systemPrompt },
   ]);
