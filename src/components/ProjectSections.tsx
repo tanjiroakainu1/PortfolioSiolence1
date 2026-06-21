@@ -43,7 +43,7 @@ export function ProjectSections({ groups }: { groups: ProjectGroup[] }) {
               className="electric-section-title electric-section-title--ion projects-section__group-title"
             >
               <span
-                className="projects-section__group-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-red-400/45 bg-gradient-to-br from-red-500/25 to-red-500/18 text-red-100 shadow-ion-sm sm:h-12 sm:w-12"
+                className="projects-section__group-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-violet-400/45 bg-gradient-to-br from-violet-500/25 to-violet-500/18 text-violet-100 shadow-ion-sm sm:h-12 sm:w-12"
                 aria-hidden
               >
                 <ProjectGroupIcon name={key} className="h-[1.2rem] w-[1.2rem] sm:h-[1.35rem] sm:w-[1.35rem]" />

@@ -18,7 +18,7 @@ export function ProjectShowcaseView({ hidden }: { hidden: boolean }) {
             {profile.name}
             <span className="showcase-hero__kicker-dot" aria-hidden />
           </p>
-          <h1 className="showcase-hero__title mt-2 bg-gradient-to-br from-white via-red-100 to-red-200 bg-clip-text text-[clamp(1.2rem,4.5vw,1.85rem)] font-bold tracking-tight text-transparent">
+          <h1 className="showcase-hero__title mt-2 bg-gradient-to-br from-white via-violet-100 to-violet-200 bg-clip-text text-[clamp(1.2rem,4.5vw,1.85rem)] font-bold tracking-tight text-transparent">
             Project showcase
           </h1>
           <p className="showcase-hero__lead mx-auto mt-3 max-w-[min(100%,40rem)] text-[clamp(0.8rem,2.2vw,0.92rem)] leading-relaxed text-slate-400 sm:mx-0 lg:max-w-[42rem]">

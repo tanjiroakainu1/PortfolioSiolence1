@@ -129,7 +129,7 @@ export function SiteHeader({
 
   return (
     <header
-      className={`site-header sticky top-0 z-[100] shrink-0 border-b border-red-400/30 bg-page/92 px-[var(--pad-x)] backdrop-blur-xl [--pad-x:clamp(0.75rem,3.5vw,1.5rem)] ${headerMode}`}
+      className={`site-header sticky top-0 z-[100] shrink-0 border-b border-violet-400/30 bg-page/92 px-[var(--pad-x)] backdrop-blur-xl [--pad-x:clamp(0.75rem,3.5vw,1.5rem)] ${headerMode}`}
     >
       <div className="site-header__bar mx-auto flex max-w-layout items-center justify-between gap-2">
         <div className="site-header__brand min-w-0">

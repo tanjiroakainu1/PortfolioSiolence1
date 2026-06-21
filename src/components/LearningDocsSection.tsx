@@ -33,7 +33,7 @@ export function LearningDocsSection() {
         className="learning-docs__link electric-link-tile"
       >
         <span
-          className="learning-docs__link-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-[#1a1a1a]/80 text-action-bright"
+          className="learning-docs__link-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-[#15101f]/80 text-action-bright"
           aria-hidden
         >
           <NavClientDriveIcon className="block h-[1.35rem] w-[1.35rem]" />
