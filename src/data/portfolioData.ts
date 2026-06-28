@@ -50,7 +50,7 @@ export const portfolioEnvelope = {
   unlockHint: "Press Play to load your portfolio experience",
   unlockAria: "Play and enter the full portfolio workspace",
   stuckNote: "Opens when you visit Portfolio — press Play once per session to browse.",
-  loadingDurationMs: 3200,
+  loadingDurationMs: 1800,
   loadingTitle: "Loading your experience",
   loadingComplete: "You're in — enjoy the show.",
   loadingSteps: [
@@ -229,7 +229,7 @@ export const headerNavWelcome = {
     "Applying Netflix-style UI…",
     "Starting playback — hold tight…",
   ],
-  transitionMs: 2800,
+  transitionMs: 1200,
 } as const;
 
 export const projectGroups: ProjectGroup[] = [
@@ -292,6 +292,7 @@ export const projectGroups: ProjectGroup[] = [
       { label: "Galaxy Nutrition", href: "https://galaxy-nutrition-system.vercel.app/" },
       { label: "Vue Dev Ram (customer)", href: "https://vue-dev-ram.vercel.app/customer" },
       { label: "Livestock Management System", href: "https://livestock-management-system-one.vercel.app/" },
+      { label: "Feed Track — Feed Supply Management", href: "https://feed-track-puce.vercel.app/" },
       { label: "Tenant Management System", href: "https://tenant-management-system-alpha.vercel.app/" },
       { label: "Payroll Management System", href: "https://payroll-management-system1.vercel.app/" },
       { label: "Cyber Security System", href: "https://cyber-security-system1.vercel.app/login" },
@@ -328,6 +329,9 @@ export const projectGroups: ProjectGroup[] = [
     title: "3D, games & experiments",
     icon: "game",
     items: [
+      { label: "Rainy Scenery", href: "https://rainy-scenery.vercel.app/" },
+      { label: "Tunnel Horror Game", href: "https://tunnel-horror-game.vercel.app/" },
+      { label: "Castle of the Northern Watch", href: "https://castle-of-the-northern-watch1.vercel.app/" },
       { label: "Snowy Walking World", href: "https://snowy-walking-world.vercel.app/" },
       { label: "3D Space Simulation", href: "https://3-d-space-simulation.vercel.app/" },
       { label: "3D Simulation (Iota)", href: "https://3-d-simulation-iota.vercel.app/" },

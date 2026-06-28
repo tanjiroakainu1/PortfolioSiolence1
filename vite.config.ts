@@ -7,8 +7,17 @@ export default defineConfig({
   publicDir: "public",
   server: {
     port: 5173,
+    strictPort: true,
+    host: true,
+    watch: {
+      ignored: ["**/images/**"],
+    },
     proxy: {
       "/api": {
+        target: "http://127.0.0.1:8787",
+        changeOrigin: true,
+      },
+      "/images": {
         target: "http://127.0.0.1:8787",
         changeOrigin: true,
       },

@@ -1,8 +1,8 @@
 import { portraitImageSrc, type Assistant, type Profile } from "../data/portfolioData";
 
 const CHIP_STYLES = [
-  "border-red-500/40 bg-red-600/15 text-red-100 shadow-[0_0_22px_rgba(229,9,20,0.22)]",
-  "border-red-500/35 bg-red-600/12 text-red-50 shadow-[0_0_20px_rgba(229,9,20,0.18)]",
+  "border-violet-500/40 bg-violet-600/15 text-violet-100 shadow-[0_0_22px_rgba(168, 85, 247,0.22)]",
+  "border-violet-500/35 bg-violet-600/12 text-violet-50 shadow-[0_0_20px_rgba(168, 85, 247,0.18)]",
   "border-white/20 bg-white/8 text-slate-100 shadow-[0_0_16px_rgba(0,0,0,0.35)]",
   "border-netflix/50 bg-netflix/15 text-white shadow-candy-sm",
   "border-accent/40 bg-accent/12 text-white shadow-candy-sm",
@@ -11,7 +11,7 @@ const CHIP_STYLES = [
 export function Hero({ profile, assistant }: { profile: Profile; assistant: Assistant }) {
   return (
     <header className="portfolio-hero mb-[clamp(0.25rem,1vh,0.65rem)] border-b border-white/10 pb-[clamp(0.75rem,2vh,1.15rem)] pt-[clamp(0.15rem,0.8vh,0.4rem)] motion-safe:animate-envelope-letter-rise">
-      <div className="relative overflow-hidden rounded-sm border border-white/10 bg-gradient-to-br from-red-600/20 via-page/95 to-black/90 p-[clamp(0.85rem,2.5vw,1.15rem)] shadow-panel ring-1 ring-red-600/25 backdrop-blur-[1.5px] sm:p-6">
+      <div className="relative overflow-hidden rounded-2xl border border-violet-400/25 bg-gradient-to-br from-violet-600/22 via-page/95 to-[#0a0614]/95 p-[clamp(1rem,2.8vw,1.35rem)] shadow-panel ring-1 ring-violet-500/20 backdrop-blur-[2px] sm:p-7">
         <div
           className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full bg-gradient-to-br from-action/25 to-transparent blur-3xl motion-safe:animate-galaxy-shimmer"
           aria-hidden
@@ -26,79 +26,82 @@ export function Hero({ profile, assistant }: { profile: Profile; assistant: Assi
           aria-hidden
         />
 
-        <div className="relative mx-auto flex w-full max-w-[36rem] flex-col items-center antialiased">
-          <div className="mb-3 flex w-full max-w-lg items-center justify-center gap-2 text-center sm:mb-4 sm:gap-3">
-            <span className="h-px w-8 max-w-[2.5rem] shrink-0 bg-gradient-to-r from-transparent to-red-400/65 sm:w-12" aria-hidden />
-            <p className="m-0 min-w-0 shrink font-display text-[clamp(0.65rem,1.85vw,0.72rem)] font-semibold uppercase tracking-[0.22em] text-red-200/95">
+        <div className="relative mx-auto flex w-full max-w-[40rem] flex-col items-center antialiased">
+          <div className="mb-4 flex w-full max-w-lg items-center justify-center gap-2 text-center sm:mb-5 sm:gap-3">
+            <span className="h-px w-8 max-w-[2.5rem] shrink-0 bg-gradient-to-r from-transparent to-violet-400/65 sm:w-12" aria-hidden />
+            <p className="m-0 min-w-0 shrink font-display text-[clamp(0.65rem,1.85vw,0.72rem)] font-semibold uppercase tracking-[0.22em] text-violet-200/95">
               {profile.year} · {profile.title}
             </p>
-            <span className="h-px w-8 max-w-[2.5rem] shrink-0 bg-gradient-to-l from-transparent to-red-400/65 sm:w-12" aria-hidden />
+            <span className="h-px w-8 max-w-[2.5rem] shrink-0 bg-gradient-to-l from-transparent to-violet-400/65 sm:w-12" aria-hidden />
           </div>
 
-          <div className="mb-4 sm:mb-5">
-            <div className="relative mx-auto w-fit">
-              <div className="absolute -inset-1 rounded-sm bg-action-gradient opacity-90 blur-[3px]" aria-hidden />
+          <div className="portfolio-hero__portrait-wrap">
+            <div className="portfolio-hero__portrait-frame">
+              <span className="portfolio-hero__portrait-glow" aria-hidden />
+              <span className="portfolio-hero__portrait-ring" aria-hidden />
               <img
                 src={portraitImageSrc}
                 alt=""
-                width={160}
-                height={160}
+                width={240}
+                height={240}
                 decoding="async"
                 loading="eager"
-                className="relative mx-auto block h-28 w-28 rounded-sm border border-red-500/30 bg-surface object-cover object-[center_15%] shadow-[0_16px_48px_rgba(0,0,0,0.65),0_0_32px_rgba(229,9,20,0.25)] ring-2 ring-red-600/30 sm:h-32 sm:w-32"
+                className="portfolio-hero__portrait-img"
               />
             </div>
           </div>
 
-          <h1 className="m-0 max-w-[20ch] text-balance text-center font-netflix text-[clamp(1.85rem,5.5vw,2.65rem)] font-normal uppercase leading-[1.05] tracking-[0.02em] text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.8)]">
+          <h1 className="portfolio-hero__title m-0 max-w-[22ch] text-balance text-center font-netflix text-[clamp(2rem,6vw,2.85rem)] font-normal uppercase leading-[1.05] tracking-[0.02em] text-white">
             {profile.name}
           </h1>
-          <p className="mt-2.5 w-full max-w-[34rem] text-balance bg-gradient-to-r from-red-100/95 via-slate-100 to-red-200/90 bg-clip-text px-2 text-center font-display text-[clamp(0.88rem,2.3vw,1.02rem)] font-medium leading-[1.42] tracking-[-0.01em] text-transparent sm:mt-3">
+          <p className="portfolio-hero__tagline mt-3 w-full max-w-[36rem] text-balance px-2 text-center font-display text-[clamp(0.88rem,2.3vw,1.05rem)] font-medium leading-[1.42] tracking-[-0.01em] sm:mt-3.5">
             {profile.tagline}
           </p>
 
-          <div className="relative mt-5 w-full max-w-[34rem] sm:mt-6">
-            <div
-              className="pointer-events-none absolute left-0 top-1 bottom-1 w-[3px] rounded-full bg-gradient-to-b from-red-400/75 via-red-400/60 to-red-400/50"
-              aria-hidden
-            />
-            <div className="space-y-3.5 pl-4 font-hero text-[clamp(0.84rem,2.2vw,0.94rem)] leading-[1.62] tracking-[0.012em] sm:space-y-4 sm:pl-5 sm:text-[0.94rem]">
-              <p className="m-0 text-left text-slate-200/92 [&::selection]:bg-red-500/25">{profile.intro}</p>
-              <p className="m-0 text-left font-medium text-slate-100/95 [&::selection]:bg-red-500/25">
-                {profile.introClosing}
-              </p>
-              <div className="rounded-xl border border-red-400/32 bg-gradient-to-br from-accent/18 via-ion/12 to-red-500/12 px-4 py-3.5 shadow-tile sm:px-5 sm:py-4">
-                <p className="m-0 text-[0.97em] font-medium leading-[1.65] text-slate-200/95">{profile.cta}</p>
+          <div className="portfolio-hero__bio">
+            <div className="portfolio-hero__bio-panel">
+              <p className="portfolio-hero__bio-lead">{profile.intro}</p>
+              <p className="portfolio-hero__bio-emphasis">{profile.introClosing}</p>
+              <div className="portfolio-hero__cta">
+                <span className="portfolio-hero__cta-icon" aria-hidden>
+                  ✦
+                </span>
+                <p className="portfolio-hero__cta-text">{profile.cta}</p>
               </div>
             </div>
           </div>
 
-          <section className="mt-6 w-full max-w-[34rem] rounded-2xl border border-red-400/32 bg-gradient-to-br from-red-500/12 via-page/88 to-red-500/12 p-3.5 text-left shadow-[0_8px_28px_rgba(0,0,0,0.38),inset_0_1px_0_rgba(255,255,255,0.08)] sm:mt-7 sm:p-4">
-            <div className="mb-4 flex w-full items-center gap-3">
-              <span className="h-px min-w-[1.25rem] flex-1 bg-gradient-to-r from-transparent to-red-400/50" aria-hidden />
-              <h2 className="m-0 shrink-0 text-center font-display text-[clamp(0.68rem,1.9vw,0.76rem)] font-semibold uppercase tracking-[0.2em] text-red-100/95">
+          <section className="portfolio-hero__stories" aria-labelledby="portfolio-hero-stories-title">
+            <header className="portfolio-hero__stories-head">
+              <span className="portfolio-hero__stories-line" aria-hidden />
+              <h2 id="portfolio-hero-stories-title" className="portfolio-hero__stories-title">
                 {profile.storyLead}
               </h2>
-              <span className="h-px min-w-[1.25rem] flex-1 bg-gradient-to-l from-transparent to-red-400/50" aria-hidden />
-            </div>
-            <div className="grid gap-3 font-hero">
-              {profile.developmentStories.map((story) => (
-                <article
-                  key={story.title}
-                  className="rounded-xl border border-white/10 bg-surface-2/75 p-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:p-4"
-                >
-                  <h3 className="m-0 font-display text-[0.92rem] font-semibold leading-snug tracking-[-0.015em] text-slate-100 sm:text-[0.94rem]">
-                    {story.title}
-                  </h3>
-                  <p className="mt-2 mb-0 text-[0.83rem] leading-relaxed text-slate-300/95">
-                    <span className="font-semibold text-red-200">Core:</span> {story.context}
-                  </p>
-                  <p className="mt-1.5 mb-0 text-[0.83rem] leading-relaxed text-slate-300/95">
-                    <span className="font-semibold text-red-200">Implementation:</span> {story.build}
-                  </p>
-                  <p className="mt-1.5 mb-0 text-[0.83rem] leading-relaxed text-slate-300/95">
-                    <span className="font-semibold text-red-200">Outcome:</span> {story.impact}
-                  </p>
+              <span className="portfolio-hero__stories-line" aria-hidden />
+            </header>
+            <div className="portfolio-hero__story-grid">
+              {profile.developmentStories.map((story, index) => (
+                <article key={story.title} className="portfolio-hero__story-card">
+                  <div className="portfolio-hero__story-head">
+                    <span className="portfolio-hero__story-index" aria-hidden>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="portfolio-hero__story-title">{story.title}</h3>
+                  </div>
+                  <dl className="portfolio-hero__story-steps">
+                    <div className="portfolio-hero__story-step">
+                      <dt>Core</dt>
+                      <dd>{story.context}</dd>
+                    </div>
+                    <div className="portfolio-hero__story-step">
+                      <dt>Implementation</dt>
+                      <dd>{story.build}</dd>
+                    </div>
+                    <div className="portfolio-hero__story-step">
+                      <dt>Outcome</dt>
+                      <dd>{story.impact}</dd>
+                    </div>
+                  </dl>
                 </article>
               ))}
             </div>

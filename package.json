@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently -k \"node server.js\" \"vite\"",
+    "predev": "node scripts/free-ports.mjs",
+    "dev": "concurrently -k -n api,web -c magenta,cyan \"node server.js\" \"vite\"",
     "build": "npx tsc --noEmit && vite build",
     "preview": "vite preview",
     "start": "NODE_ENV=production node server.js"

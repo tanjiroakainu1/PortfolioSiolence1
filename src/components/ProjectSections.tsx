@@ -20,12 +20,11 @@ export function ProjectSections({ groups }: { groups: ProjectGroup[] }) {
         </p>
         <h2 className="projects-universe__title">Live projects</h2>
         <p className="projects-universe__sub">
-          {totalCount} shipped links across {groups.length} rows — every card shows a live preview. Select any card to
-          open the app on Vercel.
+          {totalCount} shipped links across {groups.length} rows — select any card to open the live demo on Vercel.
         </p>
       </header>
 
-      {groups.map((g, groupIndex) => {
+      {groups.map((g) => {
         const key = iconKey(g);
         const orbitTag = orbitTagFromGroupTitle(g.title);
         const cards = g.items.map((item) => ({ ...item, tag: orbitTag }));
@@ -34,11 +33,10 @@ export function ProjectSections({ groups }: { groups: ProjectGroup[] }) {
           <section
             key={g.title}
             className="electric-panel electric-panel--projects projects-universe__group"
-            style={{ animationDelay: `${groupIndex * 80}ms` }}
           >
             <h3 className="electric-section-title electric-section-title--ion projects-universe__group-title">
               <span
-                className="projects-universe__group-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-red-400/45 bg-gradient-to-br from-red-500/25 to-red-500/18 text-red-100 shadow-ion-sm"
+                className="projects-universe__group-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-violet-400/45 bg-gradient-to-br from-violet-500/25 to-violet-500/18 text-violet-100 shadow-ion-sm"
                 aria-hidden
               >
                 <ProjectGroupIcon name={key} className="h-[1.05rem] w-[1.05rem]" />

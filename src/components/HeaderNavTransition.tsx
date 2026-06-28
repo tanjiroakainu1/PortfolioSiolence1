@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { headerNavWelcome, portraitImageSrc, profile } from "../data/portfolioData";
-import { FloatingParticles } from "./FloatingParticles";
+import { preferLiteEffects } from "../lib/preferLiteEffects";
 
 import { PROJECT_SHOWCASE_HASH } from "../lib/projectShowcaseNav";
 import { lockPageScroll } from "../lib/lockPageScroll";
@@ -81,11 +81,9 @@ export function HeaderNavTransition({
     >
       <div className="nav-welcome-loader__backdrop" aria-hidden />
       <div className="nav-welcome-loader__grid" aria-hidden />
-      <div className="nav-welcome-loader__particles" aria-hidden>
-        <FloatingParticles variant="chat" />
-      </div>
 
-      {SPARKLES.map((s, i) => (
+      {!preferLiteEffects()
+        ? SPARKLES.map((s, i) => (
         <span
           key={i}
           className="nav-welcome-loader__sparkle"
@@ -98,7 +96,8 @@ export function HeaderNavTransition({
           }}
           aria-hidden
         />
-      ))}
+      ))
+        : null}
 
       <div className="nav-welcome-loader__stage">
         <div className="nav-welcome-loader__card-wrap">

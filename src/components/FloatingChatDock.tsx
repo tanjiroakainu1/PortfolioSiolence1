@@ -72,15 +72,15 @@ export function FloatingChatDock({
       >
         {panelOpen ? (
           <div
-            className="flex max-h-[min(85dvh,32rem)] w-full flex-col overflow-hidden rounded-2xl border border-red-400/30 bg-surface/95 shadow-[0_16px_56px_rgba(0,0,0,0.55),0_0_48px_rgba(84,185,255,0.14)] ring-1 ring-action/20 backdrop-blur-lg motion-safe:animate-in motion-safe:slide-in-from-bottom-4 motion-safe:fade-in sm:max-h-[min(80dvh,28rem)] sm:w-[22rem]"
+            className="flex max-h-[min(85dvh,32rem)] w-full flex-col overflow-hidden rounded-2xl border border-violet-400/30 bg-surface/95 shadow-[0_16px_56px_rgba(0,0,0,0.55),0_0_48px_rgba(192, 132, 252,0.14)] ring-1 ring-action/20 backdrop-blur-lg motion-safe:animate-in motion-safe:slide-in-from-bottom-4 motion-safe:fade-in sm:max-h-[min(80dvh,28rem)] sm:w-[22rem]"
             role="dialog"
             aria-modal="true"
             aria-label={`${assistant.name} quick chat`}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex shrink-0 items-center justify-between gap-2 border-b border-red-400/20 px-3 py-2.5">
+            <div className="flex shrink-0 items-center justify-between gap-2 border-b border-violet-400/20 px-3 py-2.5">
               <div className="flex min-w-0 items-center gap-2">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-500/20 text-red-200 ring-1 ring-white/10">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-violet-500/20 text-violet-200 ring-1 ring-white/10">
                   <NavChatIcon className="block h-4 w-4" />
                 </span>
                 <div className="min-w-0">
@@ -124,7 +124,7 @@ export function FloatingChatDock({
             <form
               id={`${formId}-dock`}
               onSubmit={onSubmit}
-              className="shrink-0 border-t border-red-500/10 bg-surface-2/90 p-2.5 pb-[max(0.5rem,env(safe-area-inset-bottom,0px))]"
+              className="shrink-0 border-t border-violet-500/10 bg-surface-2/90 p-2.5 pb-[max(0.5rem,env(safe-area-inset-bottom,0px))]"
             >
               <div className="flex gap-2">
                 <label className="min-w-0 flex-1">
@@ -168,7 +168,7 @@ export function FloatingChatDock({
               <NavChatIcon className="block h-[1.1rem] w-[1.1rem]" />
             </span>
             <span className="hidden max-w-[10rem] flex-col items-start pr-0.5 text-left sm:flex">
-              <span className="text-[0.72rem] font-bold uppercase tracking-[0.12em] text-red-100/95">
+              <span className="text-[0.72rem] font-bold uppercase tracking-[0.12em] text-violet-100/95">
                 {assistant.name}
               </span>
               <span className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-slate-200/85">

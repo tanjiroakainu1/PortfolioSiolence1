@@ -73,21 +73,25 @@ export function NetflixEntryHero({
 
       <div className="netflix-entry__profiles">
         <div className="netflix-entry__profile netflix-entry__profile--active">
-          <span className="netflix-entry__profile-ring" aria-hidden />
-          <img
-            src={portraitImageSrc}
-            alt=""
-            width={72}
-            height={72}
-            decoding="async"
-            className="netflix-entry__profile-img"
-          />
+          <div className="netflix-entry__profile-avatar">
+            <span className="netflix-entry__profile-ring" aria-hidden />
+            <img
+              src={portraitImageSrc}
+              alt=""
+              width={160}
+              height={160}
+              decoding="async"
+              className="netflix-entry__profile-img"
+            />
+          </div>
           <span className="netflix-entry__profile-name">{portfolioEnvelope.profileLabel}</span>
         </div>
         <div className="netflix-entry__profile netflix-entry__profile--ghost" aria-hidden>
-          <span className="netflix-entry__profile-placeholder">
-            <span className="netflix-entry__profile-plus">+</span>
-          </span>
+          <div className="netflix-entry__profile-avatar">
+            <span className="netflix-entry__profile-placeholder">
+              <span className="netflix-entry__profile-plus">+</span>
+            </span>
+          </div>
           <span className="netflix-entry__profile-name">{portfolioEnvelope.addProfileLabel}</span>
         </div>
       </div>

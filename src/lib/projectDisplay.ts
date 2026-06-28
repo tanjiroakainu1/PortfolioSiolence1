@@ -9,6 +9,7 @@ export function normalizeProjectHref(href: string): string {
   }
 }
 
+/** Reserved for optional remote previews — portfolio cards use local placeholders for speed. */
 export function projectPreviewUrl(href: string): string {
   return `https://image.thum.io/get/width/900/noanimate/${href}`;
 }

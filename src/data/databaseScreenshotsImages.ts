@@ -1,4 +1,4 @@
-import { loadNumberedShowcaseImages, type ShowcaseGalleryImage } from "./showcaseGallery";
+import type { ShowcaseGalleryImage } from "./showcaseGallery";
 
 export interface DatabaseTechItem {
   name: string;
@@ -27,13 +27,12 @@ export const databaseScreenshotsSection = {
   stackSub: "MySQL · MongoDB · SQLite · Firebase · Supabase · Prisma",
 } as const;
 
-const imageModules = import.meta.glob<{ default: string }>("../../images/images2/*.{png,jpg,jpeg}", {
-  eager: true,
-});
-
-/** Bundled database screenshots from `images/images2/1` … `images/images2/12`. */
-export const databaseScreenshotsImages: ShowcaseGalleryImage[] = loadNumberedShowcaseImages(imageModules, {
-  min: 1,
-  max: 12,
-  altPrefix: "Database screenshot",
+/** Served from `/images/images2/` — not bundled (keeps dev server fast). */
+export const databaseScreenshotsImages: ShowcaseGalleryImage[] = Array.from({ length: 12 }, (_, i) => {
+  const number = i + 1;
+  return {
+    number,
+    src: `/images/images2/${number}.jpg`,
+    alt: `Database screenshot — screenshot ${number}`,
+  };
 });

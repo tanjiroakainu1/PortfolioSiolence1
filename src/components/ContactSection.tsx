@@ -14,10 +14,10 @@ export function ContactSection({
       <h2 className="electric-section-title">Contact & social</h2>
       <p className="mb-5 flex flex-wrap items-start gap-3 text-[clamp(0.84rem,2.4vw,0.92rem)] leading-relaxed text-slate-300">
         <span className="flex shrink-0 gap-2 pt-0.5" aria-hidden>
-          <span className="rounded-lg border border-red-400/28 bg-red-500/12 p-1.5 text-[#ff3030] shadow-candy-sm">
+          <span className="rounded-lg border border-violet-400/28 bg-violet-500/12 p-1.5 text-[#c084fc] shadow-candy-sm">
             <SocialIcon network="youtube" className="block" />
           </span>
-          <span className="rounded-lg border border-red-400/28 bg-red-500/12 p-1.5 text-[#1877f2] shadow-ion-sm">
+          <span className="rounded-lg border border-violet-400/28 bg-violet-500/12 p-1.5 text-[#1877f2] shadow-ion-sm">
             <SocialIcon network="facebook" className="block" />
           </span>
         </span>
@@ -41,7 +41,7 @@ export function ContactSection({
                 x.network === "youtube" ? "hover:[&_.social-ic]:text-[#ff4d4d]" : ""
               }`}
             >
-              <span className={`social-ic flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-black/25 ${x.network === "youtube" ? "text-[#ff3030]" : "text-[#1877f2]"}`}>
+              <span className={`social-ic flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-black/25 ${x.network === "youtube" ? "text-[#c084fc]" : "text-[#1877f2]"}`}>
                 <SocialIcon network={x.network} className="block" />
               </span>
               <span className="hover-pop-text min-w-0 text-[clamp(0.84rem,2.3vw,0.91rem)] font-semibold tracking-tight">{x.label}</span>

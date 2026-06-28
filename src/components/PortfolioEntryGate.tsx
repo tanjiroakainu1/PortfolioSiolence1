@@ -1,23 +1,23 @@
 import { useEffect, useMemo, useState } from "react";
 import {
-  portraitImageSrc,
+  assistant,
   portfolioEnvelope,
   profile,
 } from "../data/portfolioData";
 import { lockPageScroll } from "../lib/lockPageScroll";
+import { preferLiteEffects } from "../lib/preferLiteEffects";
 import { FloatingParticles } from "./FloatingParticles";
 import { ExpertiseCoverageChart } from "./ExpertiseCoverageChart";
 import { NetflixEntryHero } from "./NetflixEntryHero";
 import { usePortfolioUnlock } from "../context/PortfolioUnlockContext";
 
-function NetflixLogoMini() {
+function GalaxyLoaderBrand() {
   return (
-    <svg viewBox="0 0 111 30" width={88} height={24} aria-hidden className="text-netflix">
-      <path
-        fill="currentColor"
-        d="M105.062 14.28L111 30c-1.75-.25-3.499-.563-5.28-.845l-3.345-8.686-3.437 8.844c-1.688-.282-3.372-.376-5.031-.595l6.031-13.75L94.468 0h5.063l3.062 7.874L105.874 0h5.124l-5.937 14.28zM90.47 0h-4.594v27.25c1.5.094 3.062.156 4.594.343V0zm-8.563 26.937c-1.687-.156-3.375-.343-5.062-.5v-27h-4.78v27.25c1.313.187 2.625.375 3.937.531l4.905-27.281zm-9.374-4.843l-4.187-11.406-4.156 11.406H57.28L64.03 0h4.406l6.75 22.094h-5.72zm-14.75-9.843c-1.344 0-2.469.125-3.375.375v8.25c.906.25 2.031.375 3.375.375 2.656 0 4.781-1.031 6.375-3.094 1.594-2.063 2.406-4.781 2.406-8.156 0-3.375-.812-6.094-2.406-8.156C50.781 1.031 48.656 0 46 0c-1.344 0-2.469.125-3.375.375V0h-4.781v27.25c1.5.094 3.062.156 4.781.25V9.656c.906-.25 2.031-.375 3.375-.375 2.656 0 4.781 1.031 6.375 3.094 1.594 2.063 2.406 4.781 2.406 8.156 0 3.375-.812 6.094-2.406 8.156-1.594 2.063-3.719 3.094-6.375 3.094zM20.156 0H0v27.25c1.5.094 3.062.156 4.594.343V16.5h11.562V0z"
-      />
-    </svg>
+    <div className="galaxy-boot-loader__brand" aria-hidden>
+      <span className="galaxy-boot-loader__brand-orbit" />
+      <span className="galaxy-boot-loader__brand-glyph">✦</span>
+      <span className="galaxy-boot-loader__brand-name">{assistant.name}</span>
+    </div>
   );
 }
 
@@ -46,7 +46,7 @@ function DeveloperUnlockLoader({
       setProgress((prev) => (Math.abs(next - prev) >= 0.8 ? next : prev));
     };
     tick();
-    const interval = window.setInterval(tick, 90);
+    const interval = window.setInterval(tick, 160);
 
     const doneTimer = window.setTimeout(onComplete, duration);
 
@@ -67,6 +67,12 @@ function DeveloperUnlockLoader({
     >
       <div className="mystery-boot-loader__backdrop netflix-boot-loader__backdrop" aria-hidden />
       {!liteMode ? (
+        <div className="mystery-boot-loader__grid netflix-boot-loader__grid" aria-hidden />
+      ) : null}
+      {!liteMode ? (
+        <div className="mystery-boot-loader__nebula netflix-boot-loader__nebula" aria-hidden />
+      ) : null}
+      {!liteMode ? (
         <div className="mystery-boot-loader__particles" aria-hidden>
           <FloatingParticles variant="chat" />
         </div>
@@ -74,24 +80,34 @@ function DeveloperUnlockLoader({
 
       <div className="mystery-boot-loader__stage netflix-boot-loader__stage">
         <div className="mystery-boot-loader__card-wrap">
+          {!liteMode ? <span className="mystery-boot-loader__card-orbit" aria-hidden /> : null}
           <article className="mystery-boot-loader__card netflix-boot-loader__card">
-            <div className="netflix-boot-loader__brand">
-              <NetflixLogoMini />
-            </div>
-            <p id="netflix-boot-title" className="mystery-boot-loader__eyebrow">
-              {portfolioEnvelope.loadingTitle}
-            </p>
-
-            <div className="mystery-boot-loader__orbit-wrap netflix-boot-loader__portrait-wrap">
-              <div className="mystery-boot-loader__portrait">
-                <img src={portraitImageSrc} alt="" width={88} height={88} decoding="async" />
-              </div>
+            <div className="mystery-boot-loader__card-glow" aria-hidden />
+            <div className="netflix-boot-loader__card-shine" aria-hidden />
+            <GalaxyLoaderBrand />
+            <div className="galaxy-boot-loader__eyebrow-wrap">
+              <span className="galaxy-boot-loader__eyebrow-line" aria-hidden />
+              <p id="netflix-boot-title" className="mystery-boot-loader__eyebrow galaxy-boot-loader__eyebrow">
+                {portfolioEnvelope.loadingTitle}
+              </p>
+              <span className="galaxy-boot-loader__eyebrow-line" aria-hidden />
             </div>
 
-            <p className="mystery-boot-loader__name">{profile.name}</p>
-            <p className="mystery-boot-loader__role">{portfolioEnvelope.role}</p>
+            <div className="mystery-boot-loader__orbit-wrap netflix-boot-loader__orbit" aria-hidden>
+              <span className="mystery-boot-loader__ring mystery-boot-loader__ring--outer" />
+              <span className="mystery-boot-loader__ring mystery-boot-loader__ring--mid" />
+              <span className="mystery-boot-loader__ring mystery-boot-loader__ring--inner" />
+              <span className="mystery-boot-loader__emblem netflix-boot-loader__emblem">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <path d="M12 2l2.09 6.26L20.18 9.3l-4.77 3.47L16.82 19 12 15.77 7.18 19l1.41-6.23L3.82 9.3l6.09-1.04L12 2z" />
+                </svg>
+              </span>
+            </div>
 
-            <div className="mystery-boot-loader__progress">
+            <p className="mystery-boot-loader__name netflix-boot-loader__name">{profile.name}</p>
+            <p className="mystery-boot-loader__role netflix-boot-loader__role">{portfolioEnvelope.role}</p>
+
+            <div className="mystery-boot-loader__progress netflix-boot-loader__progress">
               <div className="mystery-boot-loader__progress-head">
                 <span className="mystery-boot-loader__status">{status}</span>
                 <span className="mystery-boot-loader__pct" aria-live="polite">
@@ -107,8 +123,9 @@ function DeveloperUnlockLoader({
                 aria-valuenow={pct}
               >
                 <span className="mystery-boot-loader__fill" style={{ width: `${pct}%` }} />
+                {!liteMode ? <span className="mystery-boot-loader__scan" aria-hidden /> : null}
               </div>
-              <p className="mystery-boot-loader__foot">
+              <p className="mystery-boot-loader__foot netflix-boot-loader__foot">
                 {pct >= 99 ? portfolioEnvelope.loadingComplete : portfolioEnvelope.classified}
               </p>
             </div>
@@ -124,13 +141,7 @@ export function PortfolioEntryGate() {
   const { loading, startUnlock, completeUnlock, navBlockedTick } = usePortfolioUnlock();
   const [leaving, setLeaving] = useState(false);
   const [navShake, setNavShake] = useState(false);
-  const liteMode = useMemo(() => {
-    if (typeof window === "undefined") return true;
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const narrow = window.matchMedia("(max-width: 960px)").matches;
-    const lowCores = (navigator.hardwareConcurrency ?? 8) <= 6;
-    return reducedMotion || (narrow && lowCores);
-  }, []);
+  const liteMode = useMemo(() => preferLiteEffects(), []);
 
   useEffect(() => lockPageScroll(), []);
 

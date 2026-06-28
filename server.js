@@ -23,6 +23,11 @@ function resolveMaxTokens() {
 app.use(cors({ origin: true }));
 app.use(express.json({ limit: "256kb" }));
 
+const imagesPath = path.join(__dirname, "images");
+if (fs.existsSync(imagesPath)) {
+  app.use("/images", express.static(imagesPath, { maxAge: "1h" }));
+}
+
 app.post("/api/chat", async (req, res) => {
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) {
@@ -90,4 +95,11 @@ app.listen(PORT, () => {
       "[chat] OPENROUTER_API_KEY is missing or empty — copy .env.example to .env in the project root."
     );
   }
+}).on("error", (err) => {
+  if (err && "code" in err && err.code === "EADDRINUSE") {
+    console.error(`[server] Port ${PORT} is already in use. Stop the other process or set PORT in .env`);
+  } else {
+    console.error("[server] Failed to start:", err);
+  }
+  process.exit(1);
 });

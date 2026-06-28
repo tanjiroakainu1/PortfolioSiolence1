@@ -7,9 +7,9 @@ import { PortfolioView } from "./components/PortfolioView";
 import { ProjectShowcaseView } from "./components/ProjectShowcaseView";
 import { ChatView } from "./components/ChatView";
 import { HeaderNavTransition } from "./components/HeaderNavTransition";
-import { FloatingParticles } from "./components/FloatingParticles";
 import { FloatingChatDock } from "./components/FloatingChatDock";
 import { releasePageScroll } from "./lib/lockPageScroll";
+import { preferLiteEffects } from "./lib/preferLiteEffects";
 
 export default function App() {
   const { route, projectsFocus } = useHashRoute(assistant.name);
@@ -51,6 +51,7 @@ export default function App() {
 
   useEffect(() => {
     document.title = `${profile.name} · ${assistant.name} ${assistant.navSubtitle} · Portfolio`;
+    document.documentElement.dataset.perf = preferLiteEffects() ? "lite" : "full";
   }, []);
 
   useEffect(() => {
@@ -88,17 +89,11 @@ export default function App() {
         onReturnToFirstEntry={handleReturnToFirstEntry}
       />
       <HeaderNavTransition target={navTarget} onDone={finishHeaderNav} />
-      {route === "portfolio" || route === "showcase" ? (
-        <div
-          className="pointer-events-none fixed inset-0 z-[1] overflow-hidden"
-          aria-hidden
-        >
-          <FloatingParticles variant="portfolio" />
-        </div>
+      {route === "portfolio" ? (
+        <PortfolioView scrollToProjects={projectsFocus} />
       ) : null}
-      <PortfolioView hidden={route !== "portfolio"} scrollToProjects={projectsFocus} />
-      <ProjectShowcaseView hidden={route !== "showcase"} />
-      <ChatView hidden={route !== "chat"} />
+      {route === "showcase" ? <ProjectShowcaseView /> : null}
+      {route === "chat" ? <ChatView /> : null}
       <FloatingChatDock
         route={route}
         navTarget={navTarget}

@@ -1,13 +1,13 @@
 import { useEffect, useRef } from "react";
+import { preferLiteEffects } from "../lib/preferLiteEffects";
 
 type Variant = "portfolio" | "chat";
 
 const PORTFOLIO_COLOR_CLASSES = [
-  "",
   "floating-particle--violet",
-  "floating-particle--amber",
   "floating-particle--coral",
-  "floating-particle--sky",
+  "floating-particle--nebula",
+  "floating-particle--stardust",
 ];
 
 export function FloatingParticles({ variant }: { variant: Variant }) {
@@ -16,11 +16,11 @@ export function FloatingParticles({ variant }: { variant: Variant }) {
   useEffect(() => {
     const layer = layerRef.current;
     if (!layer) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (preferLiteEffects()) return;
 
     const narrow = window.matchMedia("(max-width: 600px)").matches;
-    const base = variant === "chat" ? 36 : 64;
-    const count = narrow ? Math.round(base * 0.58) : base;
+    const base = variant === "chat" ? 10 : 14;
+    const count = narrow ? Math.max(4, Math.round(base * 0.5)) : base;
 
     const frag = document.createDocumentFragment();
     for (let i = 0; i < count; i++) {
@@ -39,11 +39,11 @@ export function FloatingParticles({ variant }: { variant: Variant }) {
 
       const x = Math.random() * 100;
       const y = Math.random() * 100;
-      const size = 0.4 + Math.random() * 2.6;
-      const duration = 18 + Math.random() * 44;
+      const size = 0.4 + Math.random() * 2.2;
+      const duration = 24 + Math.random() * 36;
       const delay = -Math.random() * duration;
-      const tx = (Math.random() - 0.5) * 52;
-      const ty = (Math.random() - 0.5) * 72;
+      const tx = (Math.random() - 0.5) * 36;
+      const ty = (Math.random() - 0.5) * 48;
       p.style.setProperty("--x", `${x}%`);
       p.style.setProperty("--y", `${y}%`);
       p.style.setProperty("--s", `${size}px`);

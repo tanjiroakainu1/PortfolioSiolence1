@@ -5,10 +5,9 @@ import {
 } from "../data/databaseScreenshotsImages";
 import { ShowcaseImageGallerySection } from "./ShowcaseImageGallerySection";
 
-export function DatabaseScreenshotsSection({ hidden = false }: { hidden?: boolean }) {
+export function DatabaseScreenshotsSection() {
   return (
     <ShowcaseImageGallerySection
-      hidden={hidden}
       section={databaseScreenshotsSection}
       images={databaseScreenshotsImages}
       variant="database"

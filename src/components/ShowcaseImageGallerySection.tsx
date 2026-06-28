@@ -2,19 +2,18 @@ import { useCallback, useEffect, useRef, useState, type TouchEvent } from "react
 import type { DatabaseTechItem } from "../data/databaseScreenshotsImages";
 import type { ShowcaseGalleryImage, ShowcaseGallerySectionMeta } from "../data/showcaseGallery";
 import { DatabaseTechStackPanel } from "./DatabaseTechStackPanel";
+import { LazyImage } from "./LazyImage";
 
 const SWIPE_MIN_PX = 48;
 
 export type ShowcaseGalleryVariant = "system-ui" | "database";
 
 export function ShowcaseImageGallerySection({
-  hidden = false,
   section,
   images,
   variant,
   techStack,
 }: {
-  hidden?: boolean;
   section: ShowcaseGallerySectionMeta;
   images: ShowcaseGalleryImage[];
   variant: ShowcaseGalleryVariant;
@@ -38,8 +37,8 @@ export function ShowcaseImageGallerySection({
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
 
   useEffect(() => {
-    if (hidden) setLightboxIndex(null);
-  }, [hidden]);
+    return () => setLightboxIndex(null);
+  }, []);
 
   useEffect(() => {
     if (lightboxIndex === null) return;
@@ -131,16 +130,13 @@ export function ShowcaseImageGallerySection({
               aria-label={`Open ${section.title} ${item.number} of ${total} in fullscreen`}
             >
               <div className="showcase-gallery__thumb">
-                <img
+                <LazyImage
                   src={item.src}
                   alt=""
                   width={1280}
                   height={800}
                   sizes="(max-width: 419px) 100vw, (max-width: 899px) 50vw, (max-width: 1399px) 33vw, 25vw"
-                  loading={i < 4 ? "eager" : "lazy"}
-                  decoding="async"
                   className="showcase-gallery__thumb-img"
-                  draggable={false}
                 />
                 <span className="showcase-gallery__thumb-badge" aria-hidden>
                   {item.number}
@@ -180,7 +176,7 @@ export function ShowcaseImageGallerySection({
           >
             <button
               type="button"
-              className="pointer-events-auto absolute left-[max(0.5rem,env(safe-area-inset-left,0px))] top-[max(0.5rem,env(safe-area-inset-top,0px))] z-[120] flex min-h-[44px] min-w-[44px] items-center justify-center gap-1.5 rounded-xl border border-white/15 bg-white/5 px-2.5 text-[0.8rem] font-semibold text-slate-200 shadow-sm transition-colors hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-400/60 min-[380px]:justify-start min-[380px]:px-3.5 sm:left-[max(0.75rem,env(safe-area-inset-left))] sm:top-[max(0.75rem,env(safe-area-inset-top))] sm:px-4 sm:text-[0.85rem]"
+              className="pointer-events-auto absolute left-[max(0.5rem,env(safe-area-inset-left,0px))] top-[max(0.5rem,env(safe-area-inset-top,0px))] z-[120] flex min-h-[44px] min-w-[44px] items-center justify-center gap-1.5 rounded-xl border border-white/15 bg-white/5 px-2.5 text-[0.8rem] font-semibold text-slate-200 shadow-sm transition-colors hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400/60 min-[380px]:justify-start min-[380px]:px-3.5 sm:left-[max(0.75rem,env(safe-area-inset-left))] sm:top-[max(0.75rem,env(safe-area-inset-top))] sm:px-4 sm:text-[0.85rem]"
               onClick={closeLightbox}
               aria-label={`Back to ${section.title} gallery`}
             >
@@ -192,7 +188,7 @@ export function ShowcaseImageGallerySection({
 
             <button
               type="button"
-              className="pointer-events-auto absolute right-[max(0.5rem,env(safe-area-inset-right,0px))] top-[max(0.5rem,env(safe-area-inset-top,0px))] z-[120] flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border border-white/15 bg-white/5 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-400/60 sm:right-[max(0.75rem,env(safe-area-inset-right))] sm:top-[max(0.75rem,env(safe-area-inset-top))]"
+              className="pointer-events-auto absolute right-[max(0.5rem,env(safe-area-inset-right,0px))] top-[max(0.5rem,env(safe-area-inset-top,0px))] z-[120] flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border border-white/15 bg-white/5 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400/60 sm:right-[max(0.75rem,env(safe-area-inset-right))] sm:top-[max(0.75rem,env(safe-area-inset-top))]"
               onClick={closeLightbox}
               aria-label="Close gallery"
             >
