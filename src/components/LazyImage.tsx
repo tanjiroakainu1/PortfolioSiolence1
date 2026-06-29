@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 export function LazyImage({
   src,
@@ -7,7 +7,7 @@ export function LazyImage({
   width,
   height,
   sizes,
-  rootMargin = "280px",
+  priority = false,
 }: {
   src: string;
   alt?: string;
@@ -15,48 +15,26 @@ export function LazyImage({
   width?: number;
   height?: number;
   sizes?: string;
-  rootMargin?: string;
+  /** When true, loads immediately (above-the-fold gallery rows). */
+  priority?: boolean;
 }) {
-  const ref = useRef<HTMLImageElement>(null);
-  const [shouldLoad, setShouldLoad] = useState(false);
   const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node || shouldLoad) return;
-
-    if (!("IntersectionObserver" in window)) {
-      setShouldLoad(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          setShouldLoad(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin }
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, [shouldLoad, rootMargin]);
+  const [failed, setFailed] = useState(false);
 
   return (
     <img
-      ref={ref}
-      src={shouldLoad ? src : undefined}
+      src={src}
       alt={alt}
       width={width}
       height={height}
       sizes={sizes}
-      loading="lazy"
+      loading={priority ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : undefined}
       decoding="async"
       draggable={false}
       onLoad={() => setLoaded(true)}
-      className={`lazy-image ${loaded ? "lazy-image--loaded" : "lazy-image--pending"} ${className}`.trim()}
+      onError={() => setFailed(true)}
+      className={`lazy-image ${loaded ? "lazy-image--loaded" : "lazy-image--pending"} ${failed ? "lazy-image--error" : ""} ${className}`.trim()}
     />
   );
 }

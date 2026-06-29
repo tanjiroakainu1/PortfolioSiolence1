@@ -132,7 +132,8 @@ export function ShowcaseImageGallerySection({
               <div className="showcase-gallery__thumb">
                 <LazyImage
                   src={item.src}
-                  alt=""
+                  alt={item.alt}
+                  priority={i < 6}
                   width={1280}
                   height={800}
                   sizes="(max-width: 419px) 100vw, (max-width: 899px) 50vw, (max-width: 1399px) 33vw, 25vw"

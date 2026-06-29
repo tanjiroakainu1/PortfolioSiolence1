@@ -6,7 +6,7 @@
   "scripts": {
     "predev": "node scripts/free-ports.mjs",
     "dev": "concurrently -k -n api,web -c magenta,cyan \"node server.js\" \"vite\"",
-    "build": "npx tsc --noEmit && vite build",
+    "build": "npx tsc --noEmit && vite build && node scripts/copy-images.mjs",
     "preview": "vite preview",
     "start": "NODE_ENV=production node server.js"
   },
