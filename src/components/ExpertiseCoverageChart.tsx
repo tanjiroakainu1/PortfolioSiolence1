@@ -76,14 +76,14 @@ export function ExpertiseCoverageChart({
           <svg className="expertise-coverage__radar" viewBox="0 0 200 200" role="img" aria-hidden>
             <defs>
               <linearGradient id={fillGradId} x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="rgba(192, 132, 252, 0.5)" />
-                <stop offset="55%" stopColor="rgba(168, 85, 247, 0.38)" />
-                <stop offset="100%" stopColor="rgba(232, 121, 249, 0.22)" />
+                <stop offset="0%" stopColor="rgba(229, 229, 229, 0.5)" />
+                <stop offset="55%" stopColor="rgba(255, 255, 255, 0.38)" />
+                <stop offset="100%" stopColor="rgba(163, 163, 163, 0.2)" />
               </linearGradient>
               <linearGradient id={strokeGradId} x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#e9d5ff" />
-                <stop offset="50%" stopColor="#c084fc" />
-                <stop offset="100%" stopColor="#a855f7" />
+                <stop offset="0%" stopColor="#fafafa" />
+                <stop offset="50%" stopColor="#d4d4d4" />
+                <stop offset="100%" stopColor="#ffffff" />
               </linearGradient>
             </defs>
 

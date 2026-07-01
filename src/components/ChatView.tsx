@@ -34,8 +34,8 @@ export function ChatView() {
     >
       {!preferLiteEffects() ? <FloatingParticles variant="chat" /> : null}
       <div className="relative z-[1] mx-auto flex min-h-0 w-full max-w-[min(48rem,100%)] flex-1 flex-col px-[clamp(0.75rem,3.5vw,1.25rem)] pb-[max(0.5rem,env(safe-area-inset-bottom,0px))] pt-3 sm:px-6 sm:pb-4 sm:pt-4 lg:max-w-[52rem]">
-        <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl border border-violet-400/30 bg-surface/88 shadow-panel ring-1 ring-action/20 backdrop-blur-md">
-          <div className="flex shrink-0 items-center justify-between gap-3 border-b border-violet-400/20 px-3 py-2.5 sm:px-4">
+        <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl border border-neutral-400/30 bg-surface/88 shadow-panel ring-1 ring-action/20 backdrop-blur-md">
+          <div className="flex shrink-0 items-center justify-between gap-3 border-b border-neutral-400/20 px-3 py-2.5 sm:px-4">
             <a
               href="#portfolio"
               className="text-sm font-semibold text-white no-underline transition-opacity hover:opacity-90 sm:text-[0.9rem]"
@@ -47,7 +47,7 @@ export function ChatView() {
               title="Assistant ready"
             >
               <span
-                className="h-1.5 w-1.5 rounded-full bg-action motion-reduce:animate-none motion-reduce:shadow-[0_0_10px_rgba(192, 132, 252,0.55)] motion-safe:animate-chat-pulse"
+                className="h-1.5 w-1.5 rounded-full bg-action motion-reduce:animate-none motion-reduce:shadow-[0_0_10px_rgba(229, 229, 229,0.55)] motion-safe:animate-chat-pulse"
                 aria-hidden
               />
               Ready
@@ -68,7 +68,7 @@ export function ChatView() {
           <form
             id={formId}
             onSubmit={onSubmit}
-            className="shrink-0 border-t border-violet-500/10 bg-surface-2/85 px-3 py-2.5 pb-[max(0.65rem,env(safe-area-inset-bottom,0px))] sm:px-4 sm:py-3"
+            className="shrink-0 border-t border-neutral-500/10 bg-surface-2/85 px-3 py-2.5 pb-[max(0.65rem,env(safe-area-inset-bottom,0px))] sm:px-4 sm:py-3"
           >
             <div className="flex w-full min-w-0 flex-col gap-2.5 sm:flex-row sm:items-end sm:gap-3">
               <label className="block w-full min-w-0 flex-1 sm:min-w-0">

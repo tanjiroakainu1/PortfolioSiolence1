@@ -15,12 +15,12 @@ export function ProjectSections({ groups }: { groups: ProjectGroup[] }) {
       <header className="projects-universe__hero">
         <p className="projects-universe__kicker">
           <span className="projects-universe__kicker-dot" aria-hidden />
-          My list · production builds
+          Selected work
           <span className="projects-universe__kicker-dot" aria-hidden />
         </p>
         <h2 className="projects-universe__title">Live projects</h2>
         <p className="projects-universe__sub">
-          {totalCount} shipped links across {groups.length} rows — select any card to open the live demo on Vercel.
+          {totalCount} shipped links across {groups.length} categories — open any card to visit the live demo.
         </p>
       </header>
 
@@ -36,7 +36,7 @@ export function ProjectSections({ groups }: { groups: ProjectGroup[] }) {
           >
             <h3 className="electric-section-title electric-section-title--ion projects-universe__group-title">
               <span
-                className="projects-universe__group-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-violet-400/45 bg-gradient-to-br from-violet-500/25 to-violet-500/18 text-violet-100 shadow-ion-sm"
+                className="projects-universe__group-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-neutral-400/45 bg-gradient-to-br from-neutral-500/25 to-neutral-500/18 text-neutral-100 shadow-ion-sm"
                 aria-hidden
               >
                 <ProjectGroupIcon name={key} className="h-[1.05rem] w-[1.05rem]" />

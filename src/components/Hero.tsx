@@ -1,44 +1,24 @@
 import { portraitImageSrc, type Assistant, type Profile } from "../data/portfolioData";
 
 const CHIP_STYLES = [
-  "border-violet-500/40 bg-violet-600/15 text-violet-100 shadow-[0_0_22px_rgba(168, 85, 247,0.22)]",
-  "border-violet-500/35 bg-violet-600/12 text-violet-50 shadow-[0_0_20px_rgba(168, 85, 247,0.18)]",
-  "border-white/20 bg-white/8 text-slate-100 shadow-[0_0_16px_rgba(0,0,0,0.35)]",
-  "border-netflix/50 bg-netflix/15 text-white shadow-candy-sm",
-  "border-accent/40 bg-accent/12 text-white shadow-candy-sm",
+  "border-white/25 bg-white/10 text-neutral-100",
+  "border-white/20 bg-white/8 text-neutral-200",
+  "border-neutral-500/40 bg-neutral-500/12 text-neutral-100",
+  "border-white/30 bg-white/12 text-white",
+  "border-neutral-400/35 bg-neutral-400/10 text-neutral-100",
 ];
 
 export function Hero({ profile, assistant }: { profile: Profile; assistant: Assistant }) {
   return (
-    <header className="portfolio-hero mb-[clamp(0.25rem,1vh,0.65rem)] border-b border-white/10 pb-[clamp(0.75rem,2vh,1.15rem)] pt-[clamp(0.15rem,0.8vh,0.4rem)] motion-safe:animate-envelope-letter-rise">
-      <div className="relative overflow-hidden rounded-2xl border border-violet-400/25 bg-gradient-to-br from-violet-600/22 via-page/95 to-[#0a0614]/95 p-[clamp(1rem,2.8vw,1.35rem)] shadow-panel ring-1 ring-violet-500/20 backdrop-blur-[2px] sm:p-7">
-        <div
-          className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full bg-gradient-to-br from-action/25 to-transparent blur-3xl motion-safe:animate-galaxy-shimmer"
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute -bottom-12 -left-10 h-44 w-44 rounded-full bg-gradient-to-tr from-netflix/30 to-transparent blur-3xl motion-safe:animate-galaxy-shimmer"
-          style={{ animationDelay: "2s" }}
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-nebula/10 blur-[80px]"
-          aria-hidden
-        />
-
-        <div className="relative mx-auto flex w-full max-w-[40rem] flex-col items-center antialiased">
-          <div className="mb-4 flex w-full max-w-lg items-center justify-center gap-2 text-center sm:mb-5 sm:gap-3">
-            <span className="h-px w-8 max-w-[2.5rem] shrink-0 bg-gradient-to-r from-transparent to-violet-400/65 sm:w-12" aria-hidden />
-            <p className="m-0 min-w-0 shrink font-display text-[clamp(0.65rem,1.85vw,0.72rem)] font-semibold uppercase tracking-[0.22em] text-violet-200/95">
-              {profile.year} · {profile.title}
-            </p>
-            <span className="h-px w-8 max-w-[2.5rem] shrink-0 bg-gradient-to-l from-transparent to-violet-400/65 sm:w-12" aria-hidden />
-          </div>
+    <header className="portfolio-hero mb-[clamp(0.5rem,1.5vh,1rem)] border-b border-white/10 pb-[clamp(1rem,2.5vh,1.5rem)] pt-[clamp(0.25rem,1vh,0.5rem)]">
+      <div className="relative overflow-hidden rounded-xl border border-white/12 bg-[#0a0a0a] p-[clamp(1.25rem,3vw,2rem)] shadow-[0_8px_32px_rgba(0,0,0,0.5)] sm:p-8">
+        <div className="relative mx-auto flex w-full max-w-[42rem] flex-col items-center">
+          <p className="m-0 mb-5 font-mono text-[clamp(0.62rem,1.8vw,0.72rem)] font-medium uppercase tracking-[0.2em] text-neutral-400">
+            {profile.year} · {profile.title}
+          </p>
 
           <div className="portfolio-hero__portrait-wrap">
             <div className="portfolio-hero__portrait-frame">
-              <span className="portfolio-hero__portrait-glow" aria-hidden />
-              <span className="portfolio-hero__portrait-ring" aria-hidden />
               <img
                 src={portraitImageSrc}
                 alt=""
@@ -51,27 +31,24 @@ export function Hero({ profile, assistant }: { profile: Profile; assistant: Assi
             </div>
           </div>
 
-          <h1 className="portfolio-hero__title m-0 max-w-[22ch] text-balance text-center font-netflix text-[clamp(2rem,6vw,2.85rem)] font-normal uppercase leading-[1.05] tracking-[0.02em] text-white">
+          <h1 className="portfolio-hero__title m-0 mt-5 max-w-[22ch] text-balance text-center font-sans text-[clamp(1.85rem,5.5vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.02em] text-white">
             {profile.name}
           </h1>
-          <p className="portfolio-hero__tagline mt-3 w-full max-w-[36rem] text-balance px-2 text-center font-display text-[clamp(0.88rem,2.3vw,1.05rem)] font-medium leading-[1.42] tracking-[-0.01em] sm:mt-3.5">
+          <p className="portfolio-hero__tagline mt-3 w-full max-w-[36rem] text-balance px-2 text-center text-[clamp(0.92rem,2.3vw,1.05rem)] font-medium leading-[1.5] text-neutral-300">
             {profile.tagline}
           </p>
 
-          <div className="portfolio-hero__bio">
+          <div className="portfolio-hero__bio mt-6 w-full">
             <div className="portfolio-hero__bio-panel">
               <p className="portfolio-hero__bio-lead">{profile.intro}</p>
               <p className="portfolio-hero__bio-emphasis">{profile.introClosing}</p>
               <div className="portfolio-hero__cta">
-                <span className="portfolio-hero__cta-icon" aria-hidden>
-                  ✦
-                </span>
                 <p className="portfolio-hero__cta-text">{profile.cta}</p>
               </div>
             </div>
           </div>
 
-          <section className="portfolio-hero__stories" aria-labelledby="portfolio-hero-stories-title">
+          <section className="portfolio-hero__stories mt-6 w-full" aria-labelledby="portfolio-hero-stories-title">
             <header className="portfolio-hero__stories-head">
               <span className="portfolio-hero__stories-line" aria-hidden />
               <h2 id="portfolio-hero-stories-title" className="portfolio-hero__stories-title">
@@ -90,15 +67,15 @@ export function Hero({ profile, assistant }: { profile: Profile; assistant: Assi
                   </div>
                   <dl className="portfolio-hero__story-steps">
                     <div className="portfolio-hero__story-step">
-                      <dt>Core</dt>
+                      <dt>Client need</dt>
                       <dd>{story.context}</dd>
                     </div>
                     <div className="portfolio-hero__story-step">
-                      <dt>Implementation</dt>
+                      <dt>What I built</dt>
                       <dd>{story.build}</dd>
                     </div>
                     <div className="portfolio-hero__story-step">
-                      <dt>Outcome</dt>
+                      <dt>Result</dt>
                       <dd>{story.impact}</dd>
                     </div>
                   </dl>
@@ -109,28 +86,29 @@ export function Hero({ profile, assistant }: { profile: Profile; assistant: Assi
         </div>
       </div>
 
-      <div className="mt-6 flex flex-wrap justify-center gap-3">
+      <div className="mt-8 flex flex-wrap justify-center gap-3">
         <a
           href="#chat"
-          className="btn-primary min-h-[44px] px-5 py-2.5 text-[clamp(0.82rem,2.3vw,0.9rem)] no-underline"
+          className="btn-primary min-h-[44px] px-6 py-2.5 text-[clamp(0.82rem,2.3vw,0.9rem)] no-underline"
         >
           {assistant.name} · {assistant.navSubtitle}
         </a>
         <a
           href="#stack"
-          className="inline-flex min-h-[44px] items-center justify-center rounded-xl border border-white/15 bg-white/8 px-5 py-2.5 text-[clamp(0.82rem,2.3vw,0.9rem)] font-semibold text-slate-100 no-underline shadow-[0_4px_16px_rgba(0,0,0,0.35)] transition-[background,border,transform,box-shadow] hover:-translate-y-0.5 hover:border-action/40 hover:bg-action/10 hover:shadow-action-sm"
+          className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-white/20 bg-transparent px-6 py-2.5 text-[clamp(0.82rem,2.3vw,0.9rem)] font-semibold text-neutral-100 no-underline transition-[background,border-color,transform] hover:-translate-y-0.5 hover:border-white/35 hover:bg-white/5"
         >
           Stack &amp; tools
         </a>
       </div>
-      <p className="mb-2 mt-7 text-center font-display text-[0.7rem] font-semibold uppercase tracking-[0.17em] text-muted">
+
+      <p className="mb-2 mt-8 text-center font-mono text-[0.68rem] font-medium uppercase tracking-[0.16em] text-neutral-500">
         {profile.chipsLabel}
       </p>
       <div className="flex flex-wrap justify-center gap-2">
         {profile.highlights.map((t, i) => (
           <span
             key={t}
-            className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[clamp(0.75rem,2.1vw,0.82rem)] font-medium ${CHIP_STYLES[i % CHIP_STYLES.length]}`}
+            className={`inline-flex items-center rounded-md border px-2.5 py-1 text-[clamp(0.75rem,2.1vw,0.82rem)] font-medium ${CHIP_STYLES[i % CHIP_STYLES.length]}`}
           >
             {t}
           </span>

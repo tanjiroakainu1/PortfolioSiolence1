@@ -68,7 +68,7 @@ export const portfolioEnvelope = {
   navLockHintShort: "Intro locked",
   firstEntryLabel: "Intro",
   firstEntryAria: "Return to portfolio Netflix-style intro",
-  netflixTagline: "Stories built in code. Shipped to production.",
+  netflixTagline: "Capstone systems shipped to production. Live links ready for defense.",
   profileLabel: "Developer",
   addProfileLabel: "More builds",
   maturityRating: "TV-MA · Strong engineering",
@@ -79,30 +79,39 @@ export const profile: Profile = {
   title: "Full-stack developer",
   year: "2026",
   tagline:
-    "Web, mobile, games, and AI—designed and engineered end to end, from first idea to production-ready release.",
+    "Capstone systems, web, mobile, games, and AI—built end to end for clients who need defense-ready demos and production links.",
   intro:
-    "I design and ship full-stack software with steady communication, thoughtful architecture, and scope that adapts to your goals. Pricing stays transparent, student-friendly options are on the table, and you get demos you're happy to put in front of clients or classmates.",
+    "I design and ship full-stack capstone and commission work with steady communication, clear scope, and builds you can present to instructors, clients, or panels. Pricing stays transparent, student-friendly options are available, and you get live demos you're proud to open on defense day.",
   introClosing:
-    "When you reach out, you're talking to the person who builds the product—not a ticket queue, sales script, or generic autoresponder.",
-  storyLead: "Solution-Driven System Stories",
+    "When you reach out, you're talking to the developer who builds your system—not a ticket queue, sales script, or generic autoresponder.",
+  storyLead: "Capstone & Client Delivery Stories",
   developmentStories: [
     {
-      title: "Fast request handling for busy teams",
-      context: "Daily requests were piling up and updates were difficult to track from start to finish.",
-      build: "I redesigned the workflow to make each request clearer, easier to assign, and simpler to follow.",
-      impact: "Teams handled tasks faster, reduced confusion, and delivered updates with more confidence.",
+      title: "School enrollment capstone — built for defense day",
+      context:
+        "A school client needed a capstone-ready enrollment system to replace scattered forms and manual student records before presentation week.",
+      build:
+        "I delivered full enrollment management with admin dashboards, role-based access, and a clear path from registration through approval.",
+      impact:
+        "The client presented a live demo, cut enrollment processing time, and walked into defense with a system reviewers could test on the spot.",
     },
     {
-      title: "Better guidance for end users",
-      context: "Users needed quick answers but often got stuck waiting for manual support.",
-      build: "I created a guided support flow that keeps conversations clear, focused, and easy to navigate.",
-      impact: "People got help sooner, support load decreased, and user satisfaction improved.",
+      title: "Scheduling system capstone — clear for faculty & students",
+      context:
+        "A capstone group needed class and room scheduling that faculty and students could use without constant manual walkthroughs from the team.",
+      build:
+        "I built a school scheduling platform with structured timetables, organized views, and interfaces designed for non-technical users.",
+      impact:
+        "Demos ran smoother, scheduling confusion dropped, and the client had a polished build to show instructors and stakeholders.",
     },
     {
-      title: "Reliable project delivery cycles",
-      context: "Frequent updates were needed, but consistency across releases was hard to maintain.",
-      build: "I introduced a cleaner release rhythm with clear checkpoints and repeatable deployment practices.",
-      impact: "Updates became smoother, rollout quality improved, and project momentum stayed strong.",
+      title: "Live deployment clients can open before the deadline",
+      context:
+        "Commission and capstone clients needed working builds, revision rounds, and a stable live URL before submission and defense deadlines.",
+      build:
+        "I shipped iterative full-stack work—frontend, backend, database, APIs, and Vercel deployment—with each milestone tied to a shareable demo link.",
+      impact:
+        "Clients met defense deadlines with production URLs, revisions stayed predictable, and every presentation had a reliable system behind it.",
     },
   ],
   highlights: [
@@ -113,7 +122,7 @@ export const profile: Profile = {
   ],
   chipsLabel: "At a glance",
   cta:
-    "Ready to build something real? Send your concept, goals, or budget. I’ll take care of frontend, backend, databases, and APIs—shipping in iterations until the product feels right in your hands.",
+    "Need a capstone or commission build? Send your topic, requirements, or budget. I'll handle frontend, backend, databases, and APIs—shipping iterations with live links until your system is ready for defense or client handoff.",
 };
 
 export type SkillIconKey =
@@ -315,6 +324,8 @@ export const projectGroups: ProjectGroup[] = [
     icon: "education",
     items: [
       { label: "College Enrollment System", href: "https://college-enrollment.vercel.app/" },
+      { label: "School Enrollment Management System", href: "https://school-enrollment-management-system.vercel.app/" },
+      { label: "School Scheduling System", href: "https://school-scheduling-system-plum.vercel.app/" },
       { label: "WORKLINK — JobHub AI", href: "https://work-link-jobhub-ai.vercel.app/" },
       { label: "Quiz System", href: "https://quiz-system-lovat.vercel.app/home" },
       { label: "Class System", href: "https://class-system-xi.vercel.app/" },

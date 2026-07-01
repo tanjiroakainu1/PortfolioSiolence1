@@ -8,12 +8,12 @@ export function SkillsSection({ skills }: { skills: SkillRow[] }) {
       <div className="stack-section__head">
         <p className="stack-section__kicker">
           <span className="stack-section__kicker-dot" aria-hidden />
-          Stack clearance
+          Technical stack
           <span className="stack-section__kicker-dot" aria-hidden />
         </p>
         <h2 className="electric-section-title stack-section__title">{stackSectionTitle}</h2>
         <p className="stack-section__lead">
-          Radar + bars map live languages · list below is the full delivery stack
+          Radar and bars show language depth · full delivery stack listed below
         </p>
       </div>
 

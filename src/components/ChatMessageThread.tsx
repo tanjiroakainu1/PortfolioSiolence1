@@ -9,7 +9,7 @@ function assistantLineClass(row: string): string {
   const t = row.trimStart();
   if (!t) return "text-slate-400/75";
   if (/^\d+\.\s/.test(t)) return "font-medium text-action-bright/95";
-  if (/^[-*•]\s/.test(t)) return "font-medium text-fuchsia-200/95";
+  if (/^[-*•]\s/.test(t)) return "font-medium text-neutral-200/95";
   if (/^(#{1,3}\s|Note:|Tip:|Warning:)/i.test(t)) return "font-semibold text-action-bright/95";
   return "text-slate-100/[0.94]";
 }
@@ -29,10 +29,10 @@ function FormattedAssistantText({ text }: { text: string }) {
 }
 
 const assistantBubbleShell =
-  "relative min-w-0 max-w-[min(100%,calc(100%-3rem))] overflow-hidden rounded-2xl rounded-tl-sm border border-action/30 bg-gradient-to-br from-action-deep/20 from-[0%] via-[#130a22]/96 via-[45%] to-action/10 to-[100%] px-3 py-2 leading-relaxed shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_6px_28px_rgba(0,0,0,0.4),0_0_32px_rgba(192, 132, 252,0.12)] ring-1 ring-action/15 [overflow-wrap:anywhere]";
+  "relative min-w-0 max-w-[min(100%,calc(100%-3rem))] overflow-hidden rounded-2xl rounded-tl-sm border border-white/15 bg-gradient-to-br from-neutral-800/40 from-[0%] via-[#141414]/96 via-[45%] to-neutral-900/20 to-[100%] px-3 py-2 leading-relaxed shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_6px_28px_rgba(0,0,0,0.4)] ring-1 ring-white/10 [overflow-wrap:anywhere]";
 
 const assistantBubbleSheen =
-  "pointer-events-none absolute inset-0 rounded-[inherit] bg-[linear-gradient(125deg,rgba(192,132,252,0.14)_0%,transparent_38%,transparent_62%,rgba(168,85,247,0.12)_100%)] opacity-90";
+  "pointer-events-none absolute inset-0 rounded-[inherit] bg-[linear-gradient(125deg,rgba(229, 229, 229,0.14)_0%,transparent_38%,transparent_62%,rgba(255, 255, 255,0.12)_100%)] opacity-90";
 
 export function TypingDots() {
   return (
@@ -68,7 +68,7 @@ export function ChatMessageThread({
       }`}
       style={{
         background:
-          "linear-gradient(180deg, rgba(192,132,252,0.06) 0%, transparent 36%), radial-gradient(ellipse 85% 55% at 100% 0%, rgba(168,85,247,0.12), transparent 52%), radial-gradient(ellipse 60% 40% at 0% 100%, rgba(232,121,249,0.06), transparent 50%), #0a0614",
+          "linear-gradient(180deg, rgba(229, 229, 229,0.06) 0%, transparent 36%), radial-gradient(ellipse 85% 55% at 100% 0%, rgba(255, 255, 255,0.12), transparent 52%), radial-gradient(ellipse 60% 40% at 0% 100%, rgba(232,121,249,0.06), transparent 50%), #0a0a0a",
       }}
       role="log"
       aria-live="polite"
@@ -104,7 +104,7 @@ export function ChatMessageThread({
         return (
           <div key={line.id} className="flex w-full items-start gap-2 sm:gap-2.5">
             <img
-              className={`${AVATAR_MSG} mt-0.5 rounded-full border border-action/35 bg-surface-2 object-cover shadow-[0_0_22px_rgba(192, 132, 252,0.22)] ring-2 ring-action/25`}
+              className={`${AVATAR_MSG} mt-0.5 rounded-full border border-action/35 bg-surface-2 object-cover shadow-[0_0_22px_rgba(229, 229, 229,0.22)] ring-2 ring-action/25`}
               src={assistant.avatarSrc}
               alt=""
               width={36}
@@ -125,7 +125,7 @@ export function ChatMessageThread({
       {loading ? (
         <div className="flex w-full items-start gap-2 sm:gap-2.5">
           <img
-            className={`${AVATAR_MSG} mt-0.5 rounded-full border border-action/35 bg-surface-2 object-cover shadow-[0_0_22px_rgba(192, 132, 252,0.22)] ring-2 ring-action/25`}
+            className={`${AVATAR_MSG} mt-0.5 rounded-full border border-action/35 bg-surface-2 object-cover shadow-[0_0_22px_rgba(229, 229, 229,0.22)] ring-2 ring-action/25`}
             src={assistant.avatarSrc}
             alt=""
             width={36}
